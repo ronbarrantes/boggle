@@ -1,42 +1,34 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import superagent from "superagent";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import Game from "./components/game";
-import WordList from "./components/word-list";
+import Game from './components/game'
+import WordList from './components/word-list'
 
-import "./styles.css";
+import './styles.css'
 
 const apiURL =
-  "https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary";
+  'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
 
 class App extends React.Component {
   constructor(props) {
-    super();
-    this.state = { wordList: [], isValid: false };
-    this.handleComplete = this.handleComplete.bind(this);
+    super()
+    this.state = { wordList: [], isValid: false }
+    this.handleComplete = this.handleComplete.bind(this)
   }
 
   handleComplete(word) {
-    console.log("WORD --> ", word);
-    // checking if it's a legit word
-    // superagent
-    //   .post(apiURL)
-    //   .send({ word: word })
-    //   .then(res => JSON.parse(res.text))
-    //   .then(val => console.log(val));
 
     fetch(apiURL, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ word }),
       headers: {
-        "Content-Type": "application/json"
-      }
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => console.log(res))
 
-    this.setState({ wordList: [...this.state.wordList, word] });
+    this.setState({ wordList: [...this.state.wordList, word] })
   }
 
   render() {
@@ -47,9 +39,9 @@ class App extends React.Component {
         <Game onComplete={this.handleComplete} />
         <WordList wordList={this.state.wordList} />
       </div>
-    );
+    )
   }
 }
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+const rootElement = document.getElementById('root')
+ReactDOM.render(<App />, rootElement)
