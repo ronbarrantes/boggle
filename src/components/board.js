@@ -5,7 +5,7 @@ const emptyState = {
   isActive: false,
 }
 
-class Game extends Component {
+class Board extends Component {
   constructor(props) {
     super(props)
     this.state = emptyState
@@ -20,7 +20,6 @@ class Game extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.onComplete(this.state.word)
-    // this.setState({ word: "hello" });
   }
 
   render() {
@@ -39,4 +38,4 @@ class Game extends Component {
   }
 }
 
-export default Game
+export default Board

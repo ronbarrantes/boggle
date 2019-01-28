@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Game from './components/game'
+import Board from './components/board'
 import WordList from './components/word-list'
+import WordGuess from './components/word-guess'
 
 import './styles.css'
 
@@ -12,12 +13,11 @@ const apiURL =
 class App extends React.Component {
   constructor(props) {
     super()
-    this.state = { wordList: [], isValid: false }
+    this.state = { wordList: [], isValid: false, word: 'myCurrentWord' }
     this.handleComplete = this.handleComplete.bind(this)
   }
 
   handleComplete(word) {
-
     fetch(apiURL, {
       method: 'POST',
       body: JSON.stringify({ word }),
@@ -35,8 +35,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Hello CodeSandbox</h1>
-        <h2>hello World</h2>
-        <Game onComplete={this.handleComplete} />
+        <WordGuess word={this.state.word} />
+        <Board onComplete={this.handleComplete} />
         <WordList wordList={this.state.wordList} />
       </div>
     )
