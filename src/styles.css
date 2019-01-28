@@ -2,3 +2,38 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+
+
+.board ul{
+  width: 300px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  flex-wrap: wrap;
+  /* align-content: center; */
+}
+
+.board li {
+  font-size: 2em;
+  /* display: inline-block; */
+  flex-shrink: 0;
+  /* flex-basis: calc(25% - 10px); */
+  display: flex;
+  flex: 1 0 21%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  list-style: none;
+  border: 1px solid blue;
+  width: calc(100%/4);
+  height: calc(100%/4);
+}
+.board li div{
+  display: inline-block;
+  width: calc(100%/1.2);
+  height: calc(100%/1.2);
+  margin: 0 auto;
+  background-color: aquamarine;
+}
