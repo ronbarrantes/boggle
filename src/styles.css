@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 *{
   box-sizing: border-box;
 }
@@ -7,7 +9,7 @@
 }
 
 body{
-  
+  font-family: 'Open Sans', sans-serif;
   width: 100%;
 }
 
@@ -24,14 +26,7 @@ body{
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-   /* height: 300px;
-  margin: 0;
-  padding: 0;
-  display:flex;
-  flex-wrap: wrap; */
-  /* align-content: center; */
 }
-
 .board li {
   border: 1px dashed blue;
   display: flex;
@@ -41,24 +36,22 @@ body{
   padding: 0;
   justify-content: center;
   align-items: center;
-
-  /* vertical-align: middle; */
-  /* font-size: 2em;
-  flex-shrink: 0;
-  display: table;
-  flex: 1 0 21%;
-  
-  
-  text-decoration: none;
-  list-style: none;
-   */
+  cursor: pointer ;
+  transition: background-color .5s;
 }
 .board li div{
+  font-size: 2.4em;
   display: inline-block;
-  border: 1px dashed blue;
+  /* border: 1px dashed blue; */
   vertical-align: middle;
-  width: calc(100%/1.2);
-  height: calc(100%/1.2);
-  line-height: 90px;
+  width: calc(100%/1.5);
+  height: calc(100%/1.5);
+  line-height: 45px;
   text-align: center;
+  text-transform: uppercase;
+
+
+}
+.board li:hover{
+  background: #ffc;
 }
