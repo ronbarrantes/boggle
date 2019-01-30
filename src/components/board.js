@@ -1,40 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LetterItem from './letter-item'
 
-class Board extends Component {
-  constructor(props) {
-    super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+const Board = (props) => {
 
-  handleSubmit(event) {
-    event.preventDefault()
-    console.log('The word-->', this.props.word)
-    this.props.onComplete(this.props.word)
-  }
+  const { handleSelect } = props
 
-  render() {
-    const { handleSelect } = this.props
-
-    return (
-      <div className='board'>
-        <ul>
-          {this.props.boardLetters.map((letter, i)=>(
-            <li 
-              key={i}
-              onClick={this.props.handleClick}
-            >
-              <LetterItem 
-                letter={letter}
-                handleClick={this.props.handleClick}
-                handleSelect={handleSelect}
-              />
-            </li>)
-          )}
-        </ul>
-      </div>
-    )
-  }
+  return (
+    <div className='board'>
+      <ul>
+        {props.boardLetters.map((letter, i)=>(
+          <li 
+            key={i}
+            onClick={props.handleClick}
+          >
+            <LetterItem 
+              letter={letter}
+              handleClick={props.handleClick}
+              handleSelect={handleSelect}
+            />
+          </li>)
+        )}
+      </ul>
+    </div>
+  )
 }
 
 export default Board
