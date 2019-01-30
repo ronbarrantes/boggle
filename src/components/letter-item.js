@@ -1,11 +1,5 @@
 import React, { Component } from 'react'
 
-const emptyState = {
-  letter: '',
-  selected: false,
-  enabled: true,
-}
-
 class LetterItem extends Component  {
   constructor(){
     super()
@@ -17,7 +11,6 @@ class LetterItem extends Component  {
   }
 
   render(){
-    console.log(this.props)
     return(
       <div 
         onMouseEnter={this.selectLetter}>

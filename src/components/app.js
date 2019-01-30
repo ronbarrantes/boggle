@@ -2,6 +2,8 @@ import React from 'react'
 
 import Board from './board'
 import WordList from './word-list'
+import WordGuess from './word-guess'
+import * as util from '../lib/util'
 import '../styles.css'
 
 const apiURL =
@@ -10,8 +12,34 @@ const apiURL =
 class App extends React.Component {
   constructor() {
     super()
-    this.state = { wordList: [], isValid: false, letters: [] }
+    this.state = { 
+      word: '',
+      wordList: [], 
+      isValid: false, 
+      boardLetters: [],
+      isActive: false,
+    }
     this.handleComplete = this.handleComplete.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleSelect = this.handleSelect.bind(this)
+  }
+
+  componentDidMount(){
+    this.setState({ boardLetters: util.generateLetterArray() })
+  }
+  
+  handleClick() {
+    console.log('Clicking')
+    this.setState(state => ({
+      isActive: !state.isActive,
+    }))
+  }
+
+  handleSelect(event){
+    let letter = event.target.innerHTML
+    let letterBuild = this.state.word
+    let word = letterBuild+=letter
+    this.setState({ word })
   }
 
   handleComplete(word) {
@@ -23,8 +51,8 @@ class App extends React.Component {
       },
     })
       .then(res => res.json())
-      // .then(res => console.log(res))
       .then(res => {
+        this.setState({ word: '' })
         res.valid && this.setState({ 
           wordList: [...this.state.wordList, word],
         })
@@ -35,8 +63,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Hello CodeSandbox</h1>
-        <Board onComplete={this.handleComplete}
-          letters={this.state.letters} />
+        <p>{this.state.isActive.toString()}</p>
+        <Board 
+          word={this.state.word}        
+          boardLetters={this.state.boardLetters} 
+          handleClick={this.handleClick}
+          handleSelect={this.handleSelect}
+          onComplete={this.handleComplete}  
+        />
+        <WordGuess word={this.state.word} />
         <WordList wordList={this.state.wordList} />
       </div>
     )
