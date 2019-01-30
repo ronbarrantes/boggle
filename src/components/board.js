@@ -26,8 +26,8 @@ class Board extends Component {
             >
               <LetterItem 
                 letter={letter}
+                handleClick={this.props.handleClick}
                 handleSelect={handleSelect}
-                
               />
             </li>)
           )}

@@ -28,18 +28,34 @@ class App extends React.Component {
     this.setState({ boardLetters: util.generateLetterArray() })
   }
   
-  handleClick() {
+  handleClick(event) {
+    const { children, innerHTML } = event.target
+    const { isActive } = this.state
+
+    let letter = children[0] ? children[0].innerHTML : innerHTML
+
+    
     console.log('Clicking')
+    // console.log(letter )
+
+    
+    // isActive && this.setState({ word: letter })
+
     this.setState(state => ({
       isActive: !state.isActive,
-    }))
+    }), () => {
+      console.log('Is it active? --> ', isActive)
+    })
+
   }
 
   handleSelect(event){
-    let letter = event.target.innerHTML
-    let letterBuild = this.state.word
-    let word = letterBuild+=letter
-    this.setState({ word })
+    if(this.state.isActive){
+      let letter = event.target.innerHTML
+      let letterBuild = this.state.word
+      let word = letterBuild+=letter
+      this.setState({ word })
+    }
   }
 
   handleComplete(word) {

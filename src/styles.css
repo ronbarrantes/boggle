@@ -58,3 +58,7 @@ body{
 .board li:hover{
   background: #ffc;
 }
+
+.active{
+  background-color: #fcf;
+}
