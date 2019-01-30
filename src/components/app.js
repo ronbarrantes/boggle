@@ -14,8 +14,7 @@ class App extends React.Component {
     super()
     this.state = { 
       word: '',
-      wordList: [], 
-      isValid: false, 
+      wordList: [],
       boardLetters: [],
       isActive: false,
       boardData: {},
@@ -78,6 +77,7 @@ class App extends React.Component {
         <Board 
           word={this.state.word}        
           boardLetters={this.state.boardLetters} 
+          boardData={this.state.boardData}
           handleClick={this.handleClick}
           handleSelect={this.handleSelect}
           onComplete={this.handleComplete}  

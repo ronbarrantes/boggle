@@ -9,7 +9,7 @@ class LetterItem extends Component  {
   selectLetter(e){
     this.props.handleSelect(e)
   }
-
+// writing is visited????
   render(){
     return(
       <div 
