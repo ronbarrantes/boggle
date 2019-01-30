@@ -18,7 +18,7 @@ const randomize = (arr) => {
   return arr
 }
 
-export const generateLetterArray = () => {
+const generateLetterArray = () => {
   let letters = []
   // pick 4 vowels
   for(let i = 0; i < 4; i++){
@@ -36,3 +36,23 @@ export const generateLetterArray = () => {
   letters = randomize(letters)
   return letters
 }
+
+// export const generateLetterArray
+
+const createBoardData = (arr) => {
+  const boardData = {}
+  const boardProps = { isActive:false, visited: false }
+  boardData['byId'] = []
+  boardData['byHash'] = {}
+  arr.forEach((letter, i) => {
+    boardData.byId.push(i.toString())
+    boardData.byHash[i] = { letter, ...boardProps }
+  })
+  return boardData
+}
+
+const genArr = generateLetterArray()
+
+export const letterArray = genArr
+
+export const boardData = createBoardData(genArr)

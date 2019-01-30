@@ -18,6 +18,7 @@ class App extends React.Component {
       isValid: false, 
       boardLetters: [],
       isActive: false,
+      boardData: {},
     }
     this.handleComplete = this.handleComplete.bind(this)
     this.handleClick = this.handleClick.bind(this)
@@ -25,7 +26,10 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({ boardLetters: util.generateLetterArray() })
+    this.setState({ 
+      boardLetters: util.letterArray,
+      boardData: util.boardData,
+    })
   }
   
   handleClick(event) {

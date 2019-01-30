@@ -1,7 +1,6 @@
 import React from 'react'
 
 const WordList = props => {
-  console.log('WORD_LIST-->', props)
 
   return (
     <ul>
