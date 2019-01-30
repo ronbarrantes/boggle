@@ -32,9 +32,6 @@ class Board extends Component {
             </li>)
           )}
         </ul>
-        <form onSubmit={this.handleSubmit}>
-          <button type="submit">Check</button>
-        </form>
       </div>
     )
   }

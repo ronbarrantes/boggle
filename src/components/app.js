@@ -30,23 +30,14 @@ class App extends React.Component {
   
   handleClick(event) {
     const { children, innerHTML } = event.target
-    const { isActive } = this.state
-
     let letter = children[0] ? children[0].innerHTML : innerHTML
-
-    
-    console.log('Clicking')
-    // console.log(letter )
-
-    
-    // isActive && this.setState({ word: letter })
-
     this.setState(state => ({
       isActive: !state.isActive,
-    }), () => {
-      console.log('Is it active? --> ', isActive)
+    }), () => { this.state.isActive ?
+      this.setState({ word: letter }):(
+        this.handleComplete(this.state.word)
+      )
     })
-
   }
 
   handleSelect(event){
