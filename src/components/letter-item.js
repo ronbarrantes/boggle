@@ -7,7 +7,6 @@ class LetterItem extends Component  {
   }
 
   selectLetter(e){
-    this.props.toggleVisited(this.props.num)
     this.props.handleSelect(e)
   }
 

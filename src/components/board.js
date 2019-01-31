@@ -5,32 +5,41 @@ class Board extends Component {
 
   constructor(){
     super()
-    this.state={ num:'' } 
+    this.state={ letterId: '' }
+    this.handleClick = this.handleClick.bind(this) 
+    this.getLetterId = this.getLetterId.bind(this)
+  }
+
+  handleClick(event){
+    this.props.handleClick(event)
+  }
+
+  getLetterId(l){
+    console.log(l)
   }
 
   render(){
+    const { 
+      handleSelect, lettersById, lettersByHash } = this.props
 
-    const { handleSelect, boardData } = this.props
-    console.log(boardData)
-
+    // got to figure out how to get the letterId from the LI
+    // got to move the li into the letterItem component
+    // and maybe handle the click there   
     return (
       <div className='board'>
         <ul>
-          {boardData.byId && boardData.byId.map((num)=>{
-            let { visited } = boardData.byHash[num]
+          {lettersById.map((letterId)=>{
+            let { visited } = lettersByHash[letterId]
             return (
               <li 
-                key={num}
+                key={letterId}
                 onClick={this.props.handleClick}
                 className={visited ? 'visited':'notVisited'}
               >
                 <LetterItem 
-                  num={num}
                   handleSelect={handleSelect}
-                  handleClick={this.props.handleClick}
-                  letter={boardData.byHash[num].letter}
-                  visited={boardData.byHash[num].visited}
-                  toggleVisited={this.props.toggleVisited}
+                  letter={lettersByHash[letterId].letter}
+                  visited={lettersByHash[letterId].visited}
                 />
               </li>)
           })}

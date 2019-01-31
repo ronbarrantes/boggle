@@ -52,5 +52,4 @@ const createBoardData = (arr) => {
 
 const genArr = generateLetterArray()
 
-export const letterArray = genArr
 export const boardData = createBoardData(genArr)
