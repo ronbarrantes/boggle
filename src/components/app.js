@@ -15,18 +15,17 @@ class App extends React.Component {
     this.state = { 
       word: '',
       wordList: [],
-      boardLetters: [],
       isActive: false,
       boardData: {},
     }
     this.handleComplete = this.handleComplete.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
+    this.toggleVisited = this.toggleVisited.bind(this)
   }
 
   componentDidMount(){
     this.setState({ 
-      boardLetters: util.letterArray,
       boardData: util.boardData,
     })
   }
@@ -34,6 +33,8 @@ class App extends React.Component {
   handleClick(event) {
     const { children, innerHTML } = event.target
     let letter = children[0] ? children[0].innerHTML : innerHTML
+    console.log(event.target.num)
+
     this.setState(state => ({
       isActive: !state.isActive,
     }), () => { this.state.isActive ?
@@ -50,6 +51,17 @@ class App extends React.Component {
       let word = letterBuild+=letter
       this.setState({ word })
     }
+  }
+
+  toggleVisited(num){
+    console.log('toggleNum-->', { 
+
+      ...this.state.boardData.byHash 
+    
+    })
+    // this.setState(state=>({ boardData: 
+    //   !state.boardData.byHash[num].visited
+    // }))
   }
 
   handleComplete(word) {
@@ -72,15 +84,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello CodeSandbox</h1>
+        <h1>Boggle</h1>
         <p>{this.state.isActive.toString()}</p>
         <Board 
           word={this.state.word}        
-          boardLetters={this.state.boardLetters} 
           boardData={this.state.boardData}
           handleClick={this.handleClick}
           handleSelect={this.handleSelect}
           onComplete={this.handleComplete}  
+          toggleVisited={this.toggleVisited}
         />
         <WordGuess word={this.state.word} />
         <WordList wordList={this.state.wordList} />

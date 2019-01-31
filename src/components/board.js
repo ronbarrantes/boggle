@@ -1,38 +1,42 @@
-import React from 'react'
+import React, { Component } from 'react'
 import LetterItem from './letter-item'
 
-const Board = (props) => {
+class Board extends Component {
 
-  const { handleSelect, boardData } = props
-  console.log(boardData)
+  constructor(){
+    super()
+    this.state={ num:'' } 
+  }
 
-  let theMap = boardData.byId && boardData.byId.map(letter=>{
-    
-    return boardData.byHash[letter]
-  })
-  return (
-    <div className='board'>
-      <ul>
-        {boardData.byId && boardData.byId.map((letter)=>{
-        
-          console.log(props.boardData.byHash[letter])
-          return (
-            <li 
-              key={letter}
-              onClick={props.handleClick}
-            >
-              <LetterItem 
-                letter={props.boardData.byHash[letter].letter}
-                visited={props.boardData.byHash[letter].visited}
-                handleClick={props.handleClick}
-                handleSelect={handleSelect}
-              />
-            </li>)
-        }
-        )}
-      </ul>
-    </div>
-  )
+  render(){
+
+    const { handleSelect, boardData } = this.props
+    console.log(boardData)
+
+    return (
+      <div className='board'>
+        <ul>
+          {boardData.byId && boardData.byId.map((num)=>{
+            let { visited } = boardData.byHash[num]
+            return (
+              <li 
+                key={num}
+                onClick={this.props.handleClick}
+                className={visited ? 'visited':'notVisited'}
+              >
+                <LetterItem 
+                  num={num}
+                  handleSelect={handleSelect}
+                  handleClick={this.props.handleClick}
+                  letter={boardData.byHash[num].letter}
+                  visited={boardData.byHash[num].visited}
+                  toggleVisited={this.props.toggleVisited}
+                />
+              </li>)
+          })}
+        </ul>
+      </div>
+    )
+  }
 }
-
 export default Board

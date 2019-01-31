@@ -52,13 +52,15 @@ body{
   line-height: 45px;
   text-align: center;
   text-transform: uppercase;
-
-
 }
 .board li:hover{
   background: #ffc;
 }
 
-.active{
+.notVisited{
+  background-color: #fff;
+}
+
+.visited{
   background-color: #fcf;
 }
