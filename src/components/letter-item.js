@@ -12,10 +12,15 @@ class LetterItem extends Component  {
 
   render(){
     return(
-      <div 
-        onMouseEnter={this.selectLetter}>
-        {this.props.letter}
-      </div>
+      <li
+        onClick={this.props.handleClick}
+        className={this.props.visited ? 'visited':'notVisited'}
+      >
+        <div 
+          onMouseEnter={this.selectLetter}>
+          {this.props.letter}
+        </div>
+      </li>
     )
   }
 }

@@ -86,6 +86,7 @@ class App extends React.Component {
         res.valid && this.setState({ 
           wordList: [...this.state.wordList, word],
         })
+        console.log('valid', res.valid) 
       })
       .catch(err=>{
         console.log('ERROR:', err)
