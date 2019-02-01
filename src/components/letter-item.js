@@ -12,7 +12,7 @@ class LetterItem extends Component  {
   handleClick(event){
     const { children, innerHTML } = event.target
     let letter = children[0] ? children[0].innerHTML : innerHTML
-    
+
     this.props.selectLetterToggle(letter)
     this.props.getLetterId(this.props.letterId)
 
@@ -20,7 +20,8 @@ class LetterItem extends Component  {
   }
 
   handleMouseEnter(event){
-    this.props.selectLetterHover(event)
+    let letter = event.target.innerHTML
+    this.props.selectLetterHover(letter)    
     this.props.getLetterId(this.props.letterId)
   }
 

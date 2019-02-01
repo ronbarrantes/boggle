@@ -16,7 +16,6 @@ class App extends React.Component {
       word: '',
       wordList: [],
       isActive: false,
-      boardData: {},
       letterId: '',
       lettersById: [],
       lettersByHash: {},
@@ -26,18 +25,17 @@ class App extends React.Component {
     this.handleComplete = this.handleComplete.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
+    this.toggleActiveLetter= this.toggleActiveLetter.bind(this)
   }
 
   componentDidMount(){
     this.setState({ 
-      boardData: util.boardData,
       lettersById: util.boardData.byId,
       lettersByHash: util.boardData.byHash,
     })
   }
   
   selectLetterToggle(letter) {
-
     this.setState(state => ({
       isActive: !state.isActive,
     }), () => { this.state.isActive ?
@@ -47,12 +45,12 @@ class App extends React.Component {
     })
   }
 
-  selectLetterHover(event){
+  selectLetterHover(letter){
     if(this.state.isActive){
-      let letter = event.target.innerHTML
       let letterBuild = this.state.word
       let word = letterBuild+=letter
       this.setState({ word })
+      this.toggleActiveLetter(this.state.letterId)
     }
   }
 
@@ -60,8 +58,17 @@ class App extends React.Component {
     this.setState({ letterId })
   }
 
-  toggleActiveLetter(info){
-    console.log(info)
+  toggleActiveLetter(letterId){
+    const { lettersByHash } =  this.state
+    console.log('TOGGLE BY HASH:', this.state.lettersByHash)
+    this.setState(state => ({
+      lettersByHash: { ...state.lettersByHash, 
+        [letterId]:  { 
+          isVisited: true, 
+          letter: state.lettersByHash[letterId].letter,
+        },
+      },
+    }))
   }
 
   handleComplete(word) {
