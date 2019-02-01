@@ -12,7 +12,7 @@ const apiURL =
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       word: '',
       wordList: [],
       isActive: false,
@@ -22,19 +22,20 @@ class App extends React.Component {
       errorMessage: '',
     }
     this.getLetterId = this.getLetterId.bind(this)
+    this.resetLetters = this.resetLetters.bind(this)
     this.handleComplete = this.handleComplete.bind(this)
+    this.highlightLetter= this.highlightLetter.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
-    this.highlightLetter= this.highlightLetter.bind(this)
   }
 
   componentDidMount(){
-    this.setState({ 
+    this.setState({
       lettersById: util.boardData.byId,
       lettersByHash: util.boardData.byHash,
     })
   }
-  
+
   selectLetterToggle(letter) {
     this.setState(state => ({
       isActive: !state.isActive,
@@ -60,14 +61,27 @@ class App extends React.Component {
 
   highlightLetter(letterId){
     const { lettersByHash } =  this.state
-    console.log('TOGGLE BY HASH:', this.state.lettersByHash)
     this.setState({
-      lettersByHash: { ...lettersByHash, 
-        [letterId]:  { 
-          isVisited: true, 
+      lettersByHash: { ...lettersByHash,
+        [letterId]:  {
+          isVisited: true,
           letter: lettersByHash[letterId].letter,
         },
       },
+    })
+  }
+
+  resetLetters(){
+    const { lettersById } = this.state
+    lettersById.forEach(letterId => {
+      this.setState(state => ({
+        lettersByHash: { ...state.lettersByHash,
+          [letterId]:  {
+            isVisited: false,
+            letter: state.lettersByHash[letterId].letter,
+          },
+        },
+      }))
     })
   }
 
@@ -82,14 +96,16 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         this.setState({ word: '' })
-        res.valid && this.setState({ 
+        res.valid && this.setState({
           wordList: [...this.state.wordList, word],
         })
-        console.log('valid', res.valid) 
+        console.log('valid', res.valid)
       })
       .catch(err=>{
         console.log('ERROR:', err)
         this.setState({ errorMessage: 'ERROR: sorry, something went wrong' })
+      })
+      .then(()=>{this.resetLetters()
       })
   }
 
@@ -99,9 +115,9 @@ class App extends React.Component {
         <h1>Boggle</h1>
         <p>{this.state.errorMessage}</p>
         <p>{this.state.isActive.toString()}</p>
-        <Board 
+        <Board
           getLetterId={this.getLetterId}
-          onComplete={this.handleComplete}  
+          onComplete={this.handleComplete}
           lettersById={this.state.lettersById}
           lettersByHash={this.state.lettersByHash}
           selectLetterHover={this.selectLetterHover}

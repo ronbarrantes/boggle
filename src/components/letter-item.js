@@ -8,7 +8,7 @@ class LetterItem extends Component  {
     this.handleMouseLeave=this.handleMouseEnter.bind(this)
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
   }
-  
+
   handleClick(event){
     const { children, innerHTML } = event.target
     let letter = children[0] ? children[0].innerHTML : innerHTML
@@ -21,7 +21,7 @@ class LetterItem extends Component  {
 
   handleMouseEnter(event){
     let letter = event.target.innerHTML
-    this.props.selectLetterHover(letter)    
+    this.props.selectLetterHover(letter)
     this.props.getLetterId(this.props.letterId)
   }
 
@@ -35,7 +35,7 @@ class LetterItem extends Component  {
         onClick={this.handleClick}
         className={this.props.isVisited ? 'visited':'notVisited'}
       >
-        <div 
+        <div
           onMouseEnter={this.handleMouseEnter}>
           {this.props.letter}
         </div>
@@ -44,6 +44,4 @@ class LetterItem extends Component  {
   }
 }
 
-
-
-export default LetterItem 
+export default LetterItem
