@@ -20,7 +20,7 @@ const Board = (props) => {
             selectLetterHover={selectLetterHover}
             selectLetterToggle={selectLetterToggle}
             letter={lettersByHash[letterId].letter}
-            visited={lettersByHash[letterId].visited}
+            isVisited={lettersByHash[letterId].isVisited}
           />
         )}
       </ul>

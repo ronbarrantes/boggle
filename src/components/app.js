@@ -22,10 +22,10 @@ class App extends React.Component {
       lettersByHash: {},
       errorMessage: '',
     }
-    this.handleComplete = this.handleComplete.bind(this)
-    this.selectLetterToggle = this.selectLetterToggle.bind(this)
-    this.selectLetterHover = this.selectLetterHover.bind(this)
     this.getLetterId = this.getLetterId.bind(this)
+    this.handleComplete = this.handleComplete.bind(this)
+    this.selectLetterHover = this.selectLetterHover.bind(this)
+    this.selectLetterToggle = this.selectLetterToggle.bind(this)
   }
 
   componentDidMount(){
@@ -36,9 +36,7 @@ class App extends React.Component {
     })
   }
   
-  selectLetterToggle(event) {
-    const { children, innerHTML } = event.target
-    let letter = children[0] ? children[0].innerHTML : innerHTML
+  selectLetterToggle(letter) {
 
     this.setState(state => ({
       isActive: !state.isActive,
