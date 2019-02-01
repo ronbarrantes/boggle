@@ -25,7 +25,7 @@ class App extends React.Component {
     this.handleComplete = this.handleComplete.bind(this)
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
-    this.toggleVisited = this.toggleVisited.bind(this)
+    this.getLetterId = this.getLetterId.bind(this)
   }
 
   componentDidMount(){
@@ -58,7 +58,7 @@ class App extends React.Component {
     }
   }
 
-  toggleVisited(num){
+  getLetterId(num){
   }
 
   handleComplete(word) {
@@ -95,6 +95,7 @@ class App extends React.Component {
           onComplete={this.handleComplete}  
           lettersById={this.state.lettersById}
           lettersByHash={this.state.lettersByHash}
+          
         />
         <WordGuess word={this.state.word} />
         <WordList wordList={this.state.wordList} />
