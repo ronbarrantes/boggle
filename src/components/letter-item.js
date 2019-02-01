@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 class LetterItem extends Component  {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.selectLetter = this.selectLetter.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }

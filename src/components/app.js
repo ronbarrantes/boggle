@@ -10,8 +10,8 @@ const apiURL =
   'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
 
 class App extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = { 
       word: '',
       wordList: [],
