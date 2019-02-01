@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LetterItem from './letter-item'
 
 const Board = (props) => {
-  const { handleSelect, lettersById, lettersByHash } = props 
+  const { selectLetterHover, lettersById, lettersByHash } = props 
   return (
     <div className='board'>
       <ul>
@@ -10,8 +10,8 @@ const Board = (props) => {
           <LetterItem 
             key={letterId}
             letterId={letterId}
-            handleClick={props.handleClick}
-            handleSelect={handleSelect}
+            selectLetterToggle={props.selectLetterToggle}
+            selectLetterHover={selectLetterHover}
             letter={lettersByHash[letterId].letter}
             visited={lettersByHash[letterId].visited}
           />

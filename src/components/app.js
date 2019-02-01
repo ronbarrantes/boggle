@@ -23,8 +23,8 @@ class App extends React.Component {
       errorMessage: '',
     }
     this.handleComplete = this.handleComplete.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleSelect = this.handleSelect.bind(this)
+    this.selectLetterToggle = this.selectLetterToggle.bind(this)
+    this.selectLetterHover = this.selectLetterHover.bind(this)
     this.toggleVisited = this.toggleVisited.bind(this)
     this.mouseOut = this.mouseOut.bind(this)
   }
@@ -37,7 +37,7 @@ class App extends React.Component {
     })
   }
   
-  handleClick(event) {
+  selectLetterToggle(event) {
     const { children, innerHTML } = event.target
     let letter = children[0] ? children[0].innerHTML : innerHTML
 
@@ -50,9 +50,7 @@ class App extends React.Component {
     })
   }
 
-
-
-  handleSelect(event){
+  selectLetterHover(event){
     if(this.state.isActive){
       let letter = event.target.innerHTML
       let letterBuild = this.state.word
@@ -98,8 +96,8 @@ class App extends React.Component {
         <p>{this.state.errorMessage}</p>
         <p>{this.state.isActive.toString()}</p>
         <Board 
-          handleClick={this.handleClick}
-          handleSelect={this.handleSelect}
+          selectLetterToggle={this.selectLetterToggle}
+          selectLetterHover={this.selectLetterHover}
           onComplete={this.handleComplete}  
           lettersById={this.state.lettersById}
           lettersByHash={this.state.lettersByHash}
