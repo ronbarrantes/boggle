@@ -38,9 +38,6 @@ class App extends React.Component {
   }
   
   handleClick(event) {
-
-    // console.log(event.target)
-
     const { children, innerHTML } = event.target
     let letter = children[0] ? children[0].innerHTML : innerHTML
 
