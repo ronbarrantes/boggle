@@ -25,7 +25,7 @@ class App extends React.Component {
     this.handleComplete = this.handleComplete.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
-    this.toggleActiveLetter= this.toggleActiveLetter.bind(this)
+    this.highlightLetter= this.highlightLetter.bind(this)
   }
 
   componentDidMount(){
@@ -50,7 +50,7 @@ class App extends React.Component {
       let letterBuild = this.state.word
       let word = letterBuild+=letter
       this.setState({ word })
-      this.toggleActiveLetter(this.state.letterId)
+      this.highlightLetter(this.state.letterId)
     }
   }
 
@@ -58,17 +58,17 @@ class App extends React.Component {
     this.setState({ letterId })
   }
 
-  toggleActiveLetter(letterId){
+  highlightLetter(letterId){
     const { lettersByHash } =  this.state
     console.log('TOGGLE BY HASH:', this.state.lettersByHash)
-    this.setState(state => ({
-      lettersByHash: { ...state.lettersByHash, 
+    this.setState({
+      lettersByHash: { ...lettersByHash, 
         [letterId]:  { 
           isVisited: true, 
-          letter: state.lettersByHash[letterId].letter,
+          letter: lettersByHash[letterId].letter,
         },
       },
-    }))
+    })
   }
 
   handleComplete(word) {
