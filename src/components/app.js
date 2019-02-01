@@ -26,7 +26,6 @@ class App extends React.Component {
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
     this.toggleVisited = this.toggleVisited.bind(this)
-    this.mouseOut = this.mouseOut.bind(this)
   }
 
   componentDidMount(){
@@ -57,11 +56,6 @@ class App extends React.Component {
       let word = letterBuild+=letter
       this.setState({ word })
     }
-  }
-
-  mouseOut(){
-  // got to add a mouseOut
-  // visited is needed for when I need to go back
   }
 
   toggleVisited(num){

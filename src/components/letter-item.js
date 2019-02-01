@@ -3,26 +3,26 @@ import React, { Component } from 'react'
 class LetterItem extends Component  {
   constructor(){
     super()
-    this.selectLetterAction = this.selectLetterAction.bind(this)
-    this.handleClickAction = this.handleClickAction.bind(this)
+    this.selectLetter = this.selectLetter.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
-  selectLetterAction(event){
+  selectLetter(event){
     this.props.selectLetterHover(event)
   }
 
-  handleClickAction(event){
+  handleClick(event){
     this.props.selectLetterToggle(event)
   }
 
   render(){
     return(
       <li
-        onClick={this.handleClickAction}
+        onClick={this.handleClick}
         className={this.props.visited ? 'visited':'notVisited'}
       >
         <div 
-          onMouseEnter={this.selectLetterAction}>
+          onMouseEnter={this.selectLetter}>
           {this.props.letter}
         </div>
       </li>
