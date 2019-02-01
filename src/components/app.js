@@ -59,7 +59,11 @@ class App extends React.Component {
   }
 
   getLetterId(letterId){
-    console.log('LETTER_ID-->', letterId)
+    this.setState({ letterId })
+  }
+
+  toggleActiveLetter(info){
+    console.log(info)
   }
 
   handleComplete(word) {
