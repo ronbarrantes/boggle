@@ -58,7 +58,8 @@ class App extends React.Component {
     }
   }
 
-  getLetterId(num){
+  getLetterId(letterId){
+    console.log('LETTER_ID-->', letterId)
   }
 
   handleComplete(word) {
@@ -90,12 +91,12 @@ class App extends React.Component {
         <p>{this.state.errorMessage}</p>
         <p>{this.state.isActive.toString()}</p>
         <Board 
-          selectLetterToggle={this.selectLetterToggle}
-          selectLetterHover={this.selectLetterHover}
+          getLetterId={this.getLetterId}
           onComplete={this.handleComplete}  
           lettersById={this.state.lettersById}
           lettersByHash={this.state.lettersByHash}
-          
+          selectLetterHover={this.selectLetterHover}
+          selectLetterToggle={this.selectLetterToggle}
         />
         <WordGuess word={this.state.word} />
         <WordList wordList={this.state.wordList} />
