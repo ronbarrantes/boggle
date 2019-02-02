@@ -54,7 +54,7 @@ body{
   text-transform: uppercase;
 }
 .board li:hover{
-  background: #ffc;
+  background: rgb(195, 132, 255);
 }
 
 .notVisited{
