@@ -15,6 +15,8 @@ class App extends React.Component {
     this.state = {
       word: '',
       wordList: [],
+      validWords:[],
+      invalidWords:[],
       isActive: false,
       letterId: '',
       lettersById: [],
@@ -96,8 +98,10 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         this.setState({ word: '' })
-        res.valid && this.setState({
-          wordList: [...this.state.wordList, word],
+        res.valid ? this.setState({
+          validWords: [...this.state.validWords, word],
+        }):this.setState({
+          invalidWords: [...this.state.invalidWords, word],
         })
         console.log('valid', res.valid)
       })
@@ -124,7 +128,8 @@ class App extends React.Component {
           selectLetterToggle={this.selectLetterToggle}
         />
         <WordGuess word={this.state.word} />
-        <WordList wordList={this.state.wordList} />
+        <WordList title={'Valid Words'} wordList={this.state.validWords} />
+        <WordList title={'Invalid Words'} wordList={this.state.invalidWords} />
       </div>
     )
   }
