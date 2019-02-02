@@ -2,7 +2,6 @@ import React from 'react'
 
 import Board from './board'
 import WordList from './word-list'
-import WordGuess from './word-guess'
 import * as util from '../lib/util'
 import '../styles.css'
 
@@ -13,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      word: '',
+      word: 'Hello',
       validWords:[],
       invalidWords:[],
       isActive: false,
@@ -121,9 +120,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Boggle</h1>
-        <p>{this.state.errorMessage}</p>
-        <p>{this.state.isActive.toString()}</p>
+        <p className='error'>{this.state.errorMessage}</p>
         <Board
+          word={this.state.word}
           getLetterId={this.getLetterId}
           onComplete={this.handleComplete}
           lettersById={this.state.lettersById}
@@ -132,7 +131,6 @@ class App extends React.Component {
           selectLetterToggle={this.selectLetterToggle}
           checkIfVisited={this.checkIfVisited}
         />
-        <WordGuess word={this.state.word} />
         <WordList title={'Valid Words'} wordList={this.state.validWords} />
         <WordList title={'Invalid Words'} wordList={this.state.invalidWords} />
       </div>

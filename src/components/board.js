@@ -1,17 +1,20 @@
 import React from 'react'
 import LetterItem from './letter-item'
+import WordGuess from './word-guess'
 
 const Board = (props) => {
   const {
+    word,
     lettersById,
     getLetterId,
     lettersByHash,
+    checkIfVisited,
     selectLetterHover,
     selectLetterToggle,
-    checkIfVisited,
   } = props
   return (
     <div className='board'>
+      <WordGuess word={word} />
       <ul>
         {lettersById.map((letterId)=>
           <LetterItem

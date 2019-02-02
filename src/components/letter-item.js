@@ -24,10 +24,11 @@ class LetterItem extends Component  {
   }
 
   render(){
+    const liClass = ['letter-item', this.props.isVisited && 'visited'].join(' ')
     return(
       <li
         onClick={this.handleClick}
-        className={this.props.isVisited ? 'visited':'notVisited'}
+        className={liClass}
       >
         <div
           onMouseEnter={this.handleMouseEnter}>
@@ -39,3 +40,4 @@ class LetterItem extends Component  {
 }
 
 export default LetterItem
+

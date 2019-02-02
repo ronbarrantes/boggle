@@ -4,7 +4,7 @@ const WordList = props => {
 
   return (
     <div className='word-list'>
-      <p>{props.title}</p>
+      <h3>{props.title}</h3>
       <ul >
         {props.wordList &&
           props.wordList.map((word, i) => <li key={i}>{word}</li>)}
