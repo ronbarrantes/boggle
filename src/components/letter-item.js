@@ -15,18 +15,12 @@ class LetterItem extends Component  {
 
     this.props.selectLetterToggle(letter)
     this.props.getLetterId(this.props.letterId)
-
-    console.log(this.props.isVisited)
   }
 
   handleMouseEnter(event){
     let letter = event.target.innerHTML
     this.props.selectLetterHover(letter)
     this.props.getLetterId(this.props.letterId)
-  }
-
-  handleMouseLeave(event){
-
   }
 
   render(){

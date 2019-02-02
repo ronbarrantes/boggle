@@ -14,7 +14,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       word: '',
-      wordList: [],
       validWords:[],
       invalidWords:[],
       isActive: false,
@@ -29,6 +28,8 @@ class App extends React.Component {
     this.highlightLetter= this.highlightLetter.bind(this)
     this.selectLetterHover = this.selectLetterHover.bind(this)
     this.selectLetterToggle = this.selectLetterToggle.bind(this)
+    this.checkIfVisited = this.checkIfVisited.bind(this)
+    this.setLetterVisited = this.setLetterVisited.bind(this)
   }
 
   componentDidMount(){
@@ -62,29 +63,38 @@ class App extends React.Component {
   }
 
   highlightLetter(letterId){
-    const { lettersByHash } =  this.state
-    this.setState({
-      lettersByHash: { ...lettersByHash,
-        [letterId]:  {
-          isVisited: true,
-          letter: lettersByHash[letterId].letter,
-        },
-      },
-    })
+    this.setState(this.setLetterVisited(letterId, true))
   }
 
   resetLetters(){
     const { lettersById } = this.state
     lettersById.forEach(letterId => {
-      this.setState(state => ({
-        lettersByHash: { ...state.lettersByHash,
-          [letterId]:  {
-            isVisited: false,
-            letter: state.lettersByHash[letterId].letter,
-          },
-        },
-      }))
+      this.setState(this.setLetterVisited(letterId, false))
     })
+  }
+
+  setLetterVisited(letterId, isVisited) {
+    return state => ({
+      lettersByHash: {
+        ...state.lettersByHash,
+        [letterId]: {
+          isVisited,
+          letter: state.lettersByHash[letterId].letter,
+        },
+      },
+    })
+  }
+
+  checkIfVisited(letterId){
+    console.log('CHECKING', letterId)
+    console.log(letterId ? 'yes':'no')
+    console.log('============')
+    letterId && this.state.lettersByHash[letterId].isVisited &&
+    console.log(letterId, 'has been visited')
+  }
+
+  addWordToList(word, list) {
+    this.state[list].includes(word) || this.setState({ [list]: [...this.state[list], word] })
   }
 
   handleComplete(word) {
@@ -98,12 +108,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         this.setState({ word: '' })
-        res.valid ? this.setState({
-          validWords: [...this.state.validWords, word],
-        }):this.setState({
-          invalidWords: [...this.state.invalidWords, word],
-        })
-        console.log('valid', res.valid)
+        res.valid ?  this.addWordToList(word, 'validWords') : this.addWordToList(word, 'invalidWords')
       })
       .catch(err=>{
         console.log('ERROR:', err)
