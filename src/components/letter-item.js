@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class LetterItem extends Component  {
   constructor(props){
     super(props)
-    this.state={ letterId: '' }
     this.handleClick = this.handleClick.bind(this)
     this.handleMouseLeave=this.handleMouseEnter.bind(this)
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
@@ -21,6 +20,7 @@ class LetterItem extends Component  {
     let letter = event.target.innerHTML
     this.props.selectLetterHover(letter)
     this.props.getLetterId(this.props.letterId)
+    this.props.checkIfVisited(this.props.letterId)
   }
 
   render(){

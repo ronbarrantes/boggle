@@ -42,14 +42,14 @@ class App extends React.Component {
   selectLetterToggle(letter) {
     this.setState(state => ({
       isActive: !state.isActive,
-    }), () => { this.state.isActive ?
-      this.setState({ word: letter }):(
-        this.handleComplete(this.state.word)
-      )
+    }), () => {
+      this.state.isActive ?
+        this.setState({ word: letter }):(this.handleComplete(this.state.word))
     })
   }
 
   selectLetterHover(letter){
+    console.log('letter:', letter, '| id:', this.state.letterId)
     if(this.state.isActive){
       let letterBuild = this.state.word
       let word = letterBuild+=letter
@@ -67,10 +67,12 @@ class App extends React.Component {
   }
 
   resetLetters(){
+    console.log('RESETTING!!')
     const { lettersById } = this.state
     lettersById.forEach(letterId => {
       this.setState(this.setLetterVisited(letterId, false))
     })
+    this.setState({ isActive: false })
   }
 
   setLetterVisited(letterId, isVisited) {
@@ -86,11 +88,9 @@ class App extends React.Component {
   }
 
   checkIfVisited(letterId){
-    console.log('CHECKING', letterId)
-    console.log(letterId ? 'yes':'no')
-    console.log('============')
-    letterId && this.state.lettersByHash[letterId].isVisited &&
-    console.log(letterId, 'has been visited')
+    if(letterId && this.state.lettersByHash[letterId].isVisited) {
+      this.resetLetters()
+    }
   }
 
   addWordToList(word, list) {
@@ -114,8 +114,7 @@ class App extends React.Component {
         console.log('ERROR:', err)
         this.setState({ errorMessage: 'ERROR: sorry, something went wrong' })
       })
-      .then(()=>{this.resetLetters()
-      })
+      .then(this.resetLetters())
   }
 
   render() {
@@ -131,6 +130,7 @@ class App extends React.Component {
           lettersByHash={this.state.lettersByHash}
           selectLetterHover={this.selectLetterHover}
           selectLetterToggle={this.selectLetterToggle}
+          checkIfVisited={this.checkIfVisited}
         />
         <WordGuess word={this.state.word} />
         <WordList title={'Valid Words'} wordList={this.state.validWords} />

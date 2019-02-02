@@ -8,6 +8,7 @@ const Board = (props) => {
     lettersByHash,
     selectLetterHover,
     selectLetterToggle,
+    checkIfVisited,
   } = props
   return (
     <div className='board'>
@@ -21,6 +22,7 @@ const Board = (props) => {
             selectLetterToggle={selectLetterToggle}
             letter={lettersByHash[letterId].letter}
             isVisited={lettersByHash[letterId].isVisited}
+            checkIfVisited={checkIfVisited}
           />
         )}
       </ul>
