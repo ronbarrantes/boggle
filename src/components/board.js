@@ -15,6 +15,7 @@ const Board = (props) => {
   return (
     <div className='board'>
       <WordGuess word={word} />
+      <div className='boundary'></div>
       <ul>
         {lettersById.map((letterId)=>
           <LetterItem
@@ -29,6 +30,8 @@ const Board = (props) => {
           />
         )}
       </ul>
+      <div className='boundary'></div>
+      <div className='boundary bottom'></div>
     </div>
   )
 }

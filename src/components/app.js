@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      word: 'Hello',
+      word: '',
       validWords:[],
       invalidWords:[],
       isActive: false,

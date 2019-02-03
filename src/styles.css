@@ -1,42 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 *{
   box-sizing: border-box;
 }
+
 body{
-  width: 100%;
-  margin: 0;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 0;
 }
 .App {
   display: flex;
   flex-wrap: wrap;
 }
-
 .App h1{
   text-align: center;
+  font-size: 3em;
+  margin: 0;
+  padding:0;
   width: 100%;
 }
-
 .word-guess{
   margin: 0;
   padding: 0;
   text-align: center;
+  width: 100%;
   height: 50px;
   font-size: 2em;
+  border: 1px dashed fuchsia;
 }
-
 body{
   font-family: 'Open Sans', sans-serif;
   width: 100%;
 }
-
 .board{
-  border: 1px dashed red;
   width: 100%;
   padding: 20px;
-}
+  display:flex;
+  flex-wrap: wrap;
 
+}
 .board ul{
   border-radius: 11px;
   border: 1px solid #000;
@@ -56,7 +59,6 @@ body{
   padding: 0;
   justify-content: center;
   align-items: center;
-  /* background-color: #fff; */
   cursor: pointer ;
   transition: background-color .2s;
   border-radius: 10px;
@@ -73,41 +75,72 @@ body{
   text-transform: uppercase;
 }
 .board li:hover{
-  background-color: rgb(195, 132, 255);
+  background-color: #c384ff;
 }
-
 .letter-item{
   color: #000;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, .2) inset;
 }
-
 .visited{
   background-color: #fcf;
 }
-
 .word-list{
   width: 50%;
-  border: 1px dashed blue;
-  padding: 10px;
-}
-
-.word-list ul {
-  margin: 0;
   padding: 0;
-  list-style: none;
+  justify-content: center;
 }
-
+.word-list ol  {
+  margin: 2px 20%;
+  border: 1px solid #000;
+  background: #eee;
+  border-radius: 5px;
+  min-height: 20px;
+}
 .word-list h3{
   color: green;
+  text-align: center;
 }
-
 .word-list:nth-child(odd) h3 {
-  color: red;
+  color: #f00;
+}
+.word-list li{
+  font-weight: 600;
 }
 
-.word-list
+.boundary{
+  border: 1px dashed green;
+  width: 30px;
+  height: 100%vh;
+  
+}
+
+.boundary.top, .boundary.bottom{
+  background: blue;
+  width: calc(50%-150px);
+}
 
 .error{
   text-align: center;
   color: red;
+}
+
+@media only screen and (min-width: 500px) {
+  .word-list ol  {
+    margin: 2px 20%;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .board{
+    width: 50%;
+  }
+  .word-list{
+    width: 25%;
+    padding: 10px;
+  }
+
+  .word-list ol{
+    margin: 2px 20%;
+
+  }
+
 }
