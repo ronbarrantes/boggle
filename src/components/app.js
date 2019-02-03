@@ -48,7 +48,6 @@ class App extends React.Component {
   }
 
   selectLetterHover(letter){
-    console.log('letter:', letter, '| id:', this.state.letterId)
     if(this.state.isActive){
       let letterBuild = this.state.word
       let word = letterBuild+=letter
@@ -72,6 +71,7 @@ class App extends React.Component {
       this.setState(this.setLetterVisited(letterId, false))
     })
     this.setState({ isActive: false })
+    this.setState({ word: '' })
   }
 
   setLetterVisited(letterId, isVisited) {
@@ -130,6 +130,7 @@ class App extends React.Component {
           selectLetterHover={this.selectLetterHover}
           selectLetterToggle={this.selectLetterToggle}
           checkIfVisited={this.checkIfVisited}
+          resetLetters={this.resetLetters}
         />
         <WordList title={'Valid Words'} wordList={this.state.validWords} />
         <WordList title={'Invalid Words'} wordList={this.state.invalidWords} />

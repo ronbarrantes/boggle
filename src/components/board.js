@@ -11,11 +11,12 @@ const Board = (props) => {
     checkIfVisited,
     selectLetterHover,
     selectLetterToggle,
+    resetLetters,
   } = props
   return (
     <div className='board'>
-      <WordGuess word={word} />
-      <div className='boundary'></div>
+      <WordGuess word={word} resetLetters={resetLetters} />
+      <div className='boundary sides' onMouseEnter={resetLetters}></div>
       <ul>
         {lettersById.map((letterId)=>
           <LetterItem
@@ -30,8 +31,8 @@ const Board = (props) => {
           />
         )}
       </ul>
-      <div className='boundary'></div>
-      <div className='boundary bottom'></div>
+      <div className='boundary sides' onMouseEnter={resetLetters}></div>
+      <div className='boundary bottom' onMouseEnter={resetLetters}></div>
     </div>
   )
 }
