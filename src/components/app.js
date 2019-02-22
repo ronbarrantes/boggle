@@ -4,7 +4,6 @@ import { initBoard } from '../actions/board'
 
 import Board from './board'
 import WordList from './word-list'
-import * as util from '../lib/util'
 import '../styles.css'
 
 const apiURL =
@@ -37,7 +36,7 @@ class App extends React.Component {
     this.props.initBoard()
   }
 
-  selectLetterToggle(letter) {
+  selectLetterToggle(letter) { // action --> needs complementing middleware
     this.setState(state => ({
       isActive: !state.isActive,
     }), () => {
@@ -46,7 +45,7 @@ class App extends React.Component {
     })
   }
 
-  selectLetterHover(letter){
+  selectLetterHover(letter){ // action
     if(this.state.isActive){
       let letterBuild = this.state.word
       let word = letterBuild+=letter
@@ -55,15 +54,15 @@ class App extends React.Component {
     }
   }
 
-  getLetterId(letterId){
+  getLetterId(letterId){ // action --> 
     this.setState({ letterId })
   }
 
-  highlightLetter(letterId){
+  highlightLetter(letterId){ // action --> 
     this.setState(this.setLetterVisited(letterId, true))
   }
 
-  resetLetters(){
+  resetLetters(){ // --> action 
     console.log('RESETTING!!')
     const { lettersById } = this.state
     lettersById.forEach(letterId => {
