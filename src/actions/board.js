@@ -1,5 +1,9 @@
-import { INIT_BOARD } from '../constants/action-types'
+import { INIT_BOARD, SET_BOARD } from '../constants/action-types'
 
-const initBoard  = () => ({
-  type: 'INIT_BOARD',
+export const initBoard  = () => ({
+  type: INIT_BOARD,
+})
+
+export const setBoard = (board) => ({
+  type: SET_BOARD, board,
 })

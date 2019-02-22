@@ -1,10 +1,14 @@
 import { INIT_BOARD } from '../constants/action-types'
+import { setBoard } from '../actions/board'
 
-const initBoard = ({ dispatch })=> next => action =>{
+import { boardData } from '../lib/util'
+
+const initBoard = ({ dispatch }) => next => action =>{
+  console.log('hello')
   if(action.type === INIT_BOARD){
-    console.log('intializing')
+    console.log('BOARD-->', boardData)
+    dispatch(setBoard(boardData))
   }
-
   next(action)
 }
 

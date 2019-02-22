@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './reducers/root'
 import logMiddleware from './middleware/log'
+import initBoard from './middleware/init-board'
 import thunk from 'redux-thunk'
 
-const middleware = [thunk, logMiddleware]
+const middleware = [thunk, initBoard, logMiddleware]
 
 const composeEnhancers =
   typeof window === 'object' &&

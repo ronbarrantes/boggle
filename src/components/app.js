@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { initBoard } from '../actions/board'
 
 import Board from './board'
 import WordList from './word-list'
@@ -32,10 +34,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({
-      lettersById: util.boardData.byId,
-      lettersByHash: util.boardData.byHash,
-    })
+    this.props.initBoard()
   }
 
   selectLetterToggle(letter) {
@@ -117,6 +116,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('THE PROPS -->', this.props)
     return (
       <div className="App">
         <h1>Boggle</h1>
@@ -125,8 +125,8 @@ class App extends React.Component {
           word={this.state.word}
           getLetterId={this.getLetterId}
           onComplete={this.handleComplete}
-          lettersById={this.state.lettersById}
-          lettersByHash={this.state.lettersByHash}
+          lettersById={this.props.lettersById}
+          lettersByHash={this.props.lettersByHash}
           selectLetterHover={this.selectLetterHover}
           selectLetterToggle={this.selectLetterToggle}
           checkIfVisited={this.checkIfVisited}
@@ -139,4 +139,12 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = state => ({
+  lettersById: state.board.lettersById,
+  lettersByHash: state.board.lettersByHash,
+})
+const mapDispatchToProps = {
+  initBoard,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
