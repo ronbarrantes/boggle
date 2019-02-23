@@ -11,7 +11,7 @@ export const SELECT_LETTER_TOGGLE = 'SELECT_LETTER_TOGGLE'
 export const CHECK_IF_VISITED = 'CHECK_IF_VISITED'
 export const SET_LETTER_VISITED = 'SET_LETTER_VISITED'
 
-  /*
-    activateTheLetters
-    hoverLetters
-  */
+export const ADD_LETTER = 'ADD_LETTER'
+export const ADD_VALID_WORD = 'ADD_VALID_WORD'
+export const ADD_INVALID_WORD = 'ADD_INVALID_WORD'
+export const NO_WORD_ADDED = 'NO_WORD_ADDED'

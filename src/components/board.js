@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
 
-
-
 const Board = (props) => {
   const {
-    // word,
+    word,
     lettersById,
     // getLetterId,
     lettersByHash,
@@ -23,7 +21,9 @@ const Board = (props) => {
 
   return (
     <div className='board'>
-      {/* <WordGuess word={word} resetLetters={resetLetters} /> */}
+      <WordGuess word={word}
+      // resetLetters={resetLetters}
+      />
       <div className='boundary sides'
       // onMouseEnter={resetLetters}
       ></div>
@@ -52,6 +52,7 @@ const Board = (props) => {
 }
 
 const mapStateToProps = state => ({
+  word: state.word,
   lettersById: state.board.lettersById,
   lettersByHash: state.board.lettersByHash,
 })

@@ -14,8 +14,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       word: '',
-      validWords:[],
-      invalidWords:[],
       isActive: false,
       letterId: '',
       lettersById: [],
@@ -131,15 +129,16 @@ class App extends React.Component {
           // checkIfVisited={this.checkIfVisited}
           // resetLetters={this.resetLetters}
         />
-        <WordList title={'Valid Words'} wordList={this.state.validWords} />
-        <WordList title={'Invalid Words'} wordList={this.state.invalidWords} />
+        <WordList title={'Valid Words'} wordList={this.props.validWords} />
+        <WordList title={'Invalid Words'} wordList={this.props.invalidWords} />
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-
+  validWords: state.wordList.validWords,
+  invalidWords: state.wordList.invalidWords,
 })
 const mapDispatchToProps = {
   initBoard,

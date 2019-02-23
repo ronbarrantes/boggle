@@ -1,6 +1,7 @@
 import { SET_BOARD, SET_LETTER_VISITED } from '../constants/action-types'
 
 const initialState = {
+  isActive: false,
   lettersById: [],
   lettersByHash: {},
 }
