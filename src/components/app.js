@@ -54,15 +54,15 @@ class App extends React.Component {
     }
   }
 
-  getLetterId(letterId){ // action --> 
+  getLetterId(letterId){ // action -->
     this.setState({ letterId })
   }
 
-  highlightLetter(letterId){ // action --> 
+  highlightLetter(letterId){ // action -->
     this.setState(this.setLetterVisited(letterId, true))
   }
 
-  resetLetters(){ // --> action 
+  resetLetters(){ // --> action
     console.log('RESETTING!!')
     const { lettersById } = this.state
     lettersById.forEach(letterId => {
@@ -121,15 +121,15 @@ class App extends React.Component {
         <h1>Boggle</h1>
         <p className='error'>{this.state.errorMessage}</p>
         <Board
-          word={this.state.word}
-          getLetterId={this.getLetterId}
-          onComplete={this.handleComplete}
-          lettersById={this.props.lettersById}
-          lettersByHash={this.props.lettersByHash}
-          selectLetterHover={this.selectLetterHover}
-          selectLetterToggle={this.selectLetterToggle}
-          checkIfVisited={this.checkIfVisited}
-          resetLetters={this.resetLetters}
+          // word={this.state.word}
+          // getLetterId={this.getLetterId}
+          // onComplete={this.handleComplete}
+          // lettersById={this.props.lettersById}
+          // lettersByHash={this.props.lettersByHash}
+          // selectLetterHover={this.selectLetterHover}
+          // selectLetterToggle={this.selectLetterToggle}
+          // checkIfVisited={this.checkIfVisited}
+          // resetLetters={this.resetLetters}
         />
         <WordList title={'Valid Words'} wordList={this.state.validWords} />
         <WordList title={'Invalid Words'} wordList={this.state.invalidWords} />
@@ -139,8 +139,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  lettersById: state.board.lettersById,
-  lettersByHash: state.board.lettersByHash,
+
 })
 const mapDispatchToProps = {
   initBoard,

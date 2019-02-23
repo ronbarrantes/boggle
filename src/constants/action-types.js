@@ -1,6 +1,7 @@
 export const INIT_BOARD = 'INIT_BOARD'
 export const SET_BOARD = 'SET_BOARD'
 
+export const CHANGE_TILE = 'CHANGE_TILE'
 export const GET_LETTER_ID = 'GET_LETTER_ID'
 export const RESET_LETTERS = 'RESET_LETTERS'
 export const HANDLE_COMPLETE = 'HANDLE_COMPLETE'
@@ -9,3 +10,8 @@ export const SELECT_LETTER_HOVER = 'SELECT_LETTER_HOVER'
 export const SELECT_LETTER_TOGGLE = 'SELECT_LETTER_TOGGLE'
 export const CHECK_IF_VISITED = 'CHECK_IF_VISITED'
 export const SET_LETTER_VISITED = 'SET_LETTER_VISITED'
+
+  /*
+    activateTheLetters
+    hoverLetters
+  */

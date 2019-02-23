@@ -1,4 +1,4 @@
-import { SET_BOARD, } from '../constants/action-types'
+import { SET_BOARD, SET_LETTER_VISITED } from '../constants/action-types'
 
 const initialState = {
   lettersById: [],
@@ -7,7 +7,9 @@ const initialState = {
 
 const boardReducer = (board = initialState, action) => {
   switch (action.type) {
-    
+    case SET_LETTER_VISITED:
+      return board
+
     case SET_BOARD: {
       const boardData = {
         lettersById: action.board.byId,
