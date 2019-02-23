@@ -3,9 +3,10 @@ import rootReducer from './reducers/root'
 import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
 import isWordInList from './middleware/is-word-in-list'
+import resetLetters from './middleware/reset-letters'
 import thunk from 'redux-thunk'
 
-const middleware = [thunk, initBoard, isWordInList, logMiddleware]
+const middleware = [thunk, initBoard, isWordInList, resetLetters, logMiddleware]
 
 const composeEnhancers =
   typeof window === 'object' &&
