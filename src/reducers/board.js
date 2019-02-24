@@ -1,4 +1,4 @@
-import { SET_BOARD, SELECT_LETTER_TOGGLE, SET_LETTER_RESET } from '../constants/action-types'
+import { SET_BOARD, SET_LETTER_RESET, SET_LETTER_VISITED } from '../constants/action-types'
 
 const initialState = {
   isActive: false,
@@ -8,14 +8,14 @@ const initialState = {
 
 const boardReducer = (board = initialState, action) => {
   switch (action.type) {
-    case SELECT_LETTER_TOGGLE: {
+    case SET_LETTER_VISITED: {
       return ({
         ...board,
         lettersByHash: {
           ...board.lettersByHash,
           [action.letterId]: {
             letter: board.lettersByHash[action.letterId].letter,
-            isVisited: !board.lettersByHash[action.letterId].isVisited,
+            isVisited: true,
           },
         },
       })

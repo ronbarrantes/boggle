@@ -8,8 +8,8 @@ export const setBoard = (board) => ({
   type: SET_BOARD, board,
 })
 
-export const setLettersVisited = (letterId, isVisited) => ({
-  type: SET_LETTER_VISITED, letterId, isVisited,
+export const setLettersVisited = (letterId) => ({
+  type: SET_LETTER_VISITED, letterId,
 })
 
 export const resetLetters = () => ({

@@ -6,3 +6,4 @@ export const addValidWord = (word) => ({
 export const addInvalidWord = (word) => ({
   type: ADD_INVALID_WORD, word,
 })
+

@@ -113,7 +113,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('THE PROPS -->', this.props)
     return (
       <div className="App">
         <h1>Boggle</h1>
