@@ -1,10 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { initBoard } from '../actions/board'
+import { initBoard, setBoardActive, setLettersVisited } from '../actions/board'
+import { checkWord } from '../actions/word'
 
 import Board from './board'
 import WordList from './word-list'
 import '../styles.css'
+
+// setBoardActive
+// setLettersVisited
+// checkWord
 
 const apiURL =
   'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
