@@ -9,15 +9,17 @@ class LetterItem extends Component  {
   }
 
   handleClick(event){
-    // const { children, innerHTML } = event.target
-    // let letter = children[0] ? children[0].innerHTML : innerHTML
-
+    const { children, innerHTML } = event.target
+    let letter = children[0] ? children[0].innerHTML : innerHTML
+    console.log('clicking')
     // this.props.selectLetterToggle(letter)
     // this.props.getLetterId(this.props.letterId)
-
+    this.props.isActive ? this.props.checkWord() : this.props.setBoardActive()
   }
 
   handleMouseEnter(event){
+    this.props.setLetterVisited(this.props.letterId)
+    // console.log(this.props.letterId)
     // let letter = event.target.innerHTML
     // this.props.selectLetterHover(letter)
     // this.props.getLetterId(this.props.letterId)

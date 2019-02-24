@@ -8,7 +8,7 @@ import WordList from './word-list'
 import '../styles.css'
 
 // setBoardActive
-// setLettersVisited
+// setLetterVisited
 // checkWord
 
 const apiURL =
@@ -25,6 +25,7 @@ class App extends React.Component {
       lettersByHash: {},
       errorMessage: '',
     }
+
     this.getLetterId = this.getLetterId.bind(this)
     this.resetLetters = this.resetLetters.bind(this)
     this.handleComplete = this.handleComplete.bind(this)

@@ -19,7 +19,7 @@ export const setBoardActive = () => ({
   type: SET_BOARD_ACTIVE,
 })
 
-export const setLettersVisited = (letterId) => ({
+export const setLetterVisited = (letterId) => ({
   type: SET_LETTER_VISITED, letterId,
 })
 

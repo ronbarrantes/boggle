@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 
-import {  setBoardActive, setLettersVisited, resetLetters } from '../actions/board'
+import {  setBoardActive, setLetterVisited, resetLetters } from '../actions/board'
 import { checkWord } from '../actions/word'
 
 import LetterItem from './letter-item'
@@ -16,12 +16,10 @@ const Board = (props) => {
     // checkIfVisited,
     // selectLetterHover,
     // selectLetterToggle,
+    setBoardActive,
     resetLetters,
+    isActive,
   } = props
-
-
-  // this.props.initBoard()
-
 
 
   return (
@@ -43,6 +41,10 @@ const Board = (props) => {
             letter={lettersByHash[letterId].letter}
             isVisited={lettersByHash[letterId].isVisited}
             // checkIfVisited={checkIfVisited}
+            setLetterVisited={setLetterVisited}
+            setBoardActive={setBoardActive}
+            checkWord={checkWord}
+            isActive={isActive}
           />
         )}
       </ul>
@@ -60,11 +62,12 @@ const mapStateToProps = state => ({
   word: state.word,
   lettersById: state.board.lettersById,
   lettersByHash: state.board.lettersByHash,
+  isActive: state.board.isActive,
 })
 
 const mapDispatchToProps = {
   setBoardActive,
-  setLettersVisited,
+  setLetterVisited,
   resetLetters,
   checkWord,
 }
