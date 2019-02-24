@@ -1,11 +1,3 @@
-// export const CHANGE_TILE = 'CHANGE_TILE'
-// export const GET_LETTER_ID = 'GET_LETTER_ID'
-// export const HANDLE_COMPLETE = 'HANDLE_COMPLETE'
-// export const HIGHLIGHT_LETTERS = 'HIGHLIGHT_LETTERS'
-// export const SELECT_LETTER_HOVER = 'SELECT_LETTER_HOVER'
-// export const CHECK_IF_VISITED = 'CHECK_IF_VISITED'
-
-
 export const INIT_BOARD = 'INIT_BOARD'
 export const SET_BOARD = 'SET_BOARD'
 
@@ -20,5 +12,4 @@ export const ADD_VALID_WORD = 'ADD_VALID_WORD'
 export const ADD_INVALID_WORD = 'ADD_INVALID_WORD'
 export const NO_WORD_ADDED = 'NO_WORD_ADDED'
 
-// export const FETCH_WORD = 'FETCH_WORD'
 export const CHECK_WORD = 'CHECK_WORD'

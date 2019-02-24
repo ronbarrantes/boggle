@@ -4,11 +4,11 @@ import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
 import resetLetters from './middleware/reset-letters'
 import checkWord from './middleware/check-word'
-import addLetter from './middleware/add-letter'
+import setLetter from './middleware/set-letter'
 
 const middleware = [
   initBoard,
-  addLetter,
+  setLetter,
   checkWord,
   resetLetters,
   logMiddleware,
