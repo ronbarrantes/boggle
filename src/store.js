@@ -5,9 +5,11 @@ import initBoard from './middleware/init-board'
 import resetLetters from './middleware/reset-letters'
 import checkWord from './middleware/check-word'
 import setLetter from './middleware/set-letter'
+import isBoardActive from './middleware/is-board-active'
 
 const middleware = [
   initBoard,
+  isBoardActive,
   setLetter,
   checkWord,
   resetLetters,

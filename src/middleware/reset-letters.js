@@ -7,6 +7,7 @@ const resetLetters = ({ getState, dispatch }) => next => action => {
     board.lettersById.map(id =>
       board.lettersByHash[id].isVisited = false
     )
+    board.isActive = false
     dispatch(setLetterReset(board))
   }
   next(action)

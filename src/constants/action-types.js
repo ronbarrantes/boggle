@@ -4,7 +4,6 @@ export const SET_BOARD = 'SET_BOARD'
 export const SET_LETTER_RESET = 'SET_LETTER_RESET'
 export const RESET_LETTERS = 'RESET_LETTERS'
 
-export const SELECT_LETTER_TOGGLE = 'SELECT_LETTER_TOGGLE'
 export const SET_LETTER_VISITED = 'SET_LETTER_VISITED'
 
 export const ADD_LETTER = 'ADD_LETTER'
@@ -13,3 +12,5 @@ export const ADD_INVALID_WORD = 'ADD_INVALID_WORD'
 export const NO_WORD_ADDED = 'NO_WORD_ADDED'
 
 export const CHECK_WORD = 'CHECK_WORD'
+
+export const SET_BOARD_ACTIVE = 'SET_BOARD_ACTIVE'

@@ -1,4 +1,9 @@
-import { SET_BOARD, SET_LETTER_RESET, SET_LETTER_VISITED } from '../constants/action-types'
+import {
+  SET_BOARD,
+  SET_LETTER_RESET,
+  SET_LETTER_VISITED,
+  SET_BOARD_ACTIVE,
+} from '../constants/action-types'
 
 const initialState = {
   isActive: false,
@@ -21,8 +26,11 @@ const boardReducer = (board = initialState, action) => {
       })
     }
 
+    case SET_BOARD_ACTIVE:
+      return { ...board, isActive: !board.isActive }
+
     case SET_LETTER_RESET:
-      console.log('ACTION BOARD-->', action.board.lettersByHash)
+      console.log(action.board)
       return action.board
 
     case SET_BOARD: {

@@ -2,8 +2,6 @@ import { CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
 import { addValidWord, addInvalidWord } from '../actions/word-list'
 import { resetLetters } from '../actions/board'
 
-
-
 const apiURL = 'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
 
 const checkWord = ({ getState, dispatch }) => next => action => {
