@@ -14,6 +14,7 @@ class LetterItem extends Component  {
 
     // this.props.selectLetterToggle(letter)
     // this.props.getLetterId(this.props.letterId)
+
   }
 
   handleMouseEnter(event){

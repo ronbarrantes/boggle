@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { initBoard, setBoardActive, setLettersVisited } from '../actions/board'
-import { checkWord } from '../actions/word'
+import { initBoard } from '../actions/board'
+
 
 import Board from './board'
 import WordList from './word-list'
@@ -144,6 +144,7 @@ const mapStateToProps = state => ({
   validWords: state.wordList.validWords,
   invalidWords: state.wordList.invalidWords,
 })
+
 const mapDispatchToProps = {
   initBoard,
 }
