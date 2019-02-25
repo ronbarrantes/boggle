@@ -1,8 +1,9 @@
 import {
   SET_BOARD,
   SET_LETTER_RESET,
-  SET_LETTER_VISITED,
+  SET_LETTER,
   SET_BOARD_ACTIVE,
+  TOGGLE_ACTIVE,
 } from '../constants/action-types'
 
 const initialState = {
@@ -13,7 +14,7 @@ const initialState = {
 
 const boardReducer = (board = initialState, action) => {
   switch (action.type) {
-    case SET_LETTER_VISITED: {
+    case SET_LETTER: {
       return ({
         ...board,
         lettersByHash: {
@@ -28,6 +29,9 @@ const boardReducer = (board = initialState, action) => {
 
     case SET_BOARD_ACTIVE:
       return { ...board, isActive: true }
+
+    case TOGGLE_ACTIVE:
+      return { ...board, isActive: !board.isActive }
 
     case 'TURN_ON':// to be deleted
       return action.board

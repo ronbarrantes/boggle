@@ -2,9 +2,9 @@ export const INIT_BOARD = 'INIT_BOARD'
 export const SET_BOARD = 'SET_BOARD'
 
 export const SET_LETTER_RESET = 'SET_LETTER_RESET'
-export const RESET_LETTERS = 'RESET_LETTERS'
+export const RESET_WORD = 'RESET_WORD'
 
-export const SET_LETTER_VISITED = 'SET_LETTER_VISITED'
+export const SET_LETTER = 'SET_LETTER'
 
 export const ADD_LETTER = 'ADD_LETTER'
 export const ADD_VALID_WORD = 'ADD_VALID_WORD'

@@ -1,4 +1,4 @@
-import { ADD_LETTER, RESET_LETTERS, CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
+import { ADD_LETTER, RESET_WORD, CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
 
 const initialState = ''
 
@@ -13,7 +13,7 @@ const wordReducer = (word = initialState, action) => {
     case NO_WORD_ADDED:
       return initialState
 
-    case RESET_LETTERS:
+    case RESET_WORD:
       return initialState
 
     default:

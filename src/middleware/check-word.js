@@ -1,6 +1,6 @@
 import { CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
 import { addValidWord, addInvalidWord } from '../actions/word-list'
-import { resetLetters } from '../actions/board'
+import { resetWord } from '../actions/word'
 
 const apiURL = 'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
 
@@ -14,7 +14,7 @@ const checkWord = ({ getState, dispatch }) => next => action => {
   if (word.length === 0 || validWords.includes(word) || invalidWords.includes(word)) {
     action.type = NO_WORD_ADDED
     next(action)
-    return dispatch(resetLetters())
+    return dispatch(resetWord())
   }
 
   fetch(apiURL, {
@@ -28,11 +28,11 @@ const checkWord = ({ getState, dispatch }) => next => action => {
     .then(res => {
       next(action)
       res.valid ? dispatch(addValidWord(word)):dispatch(addInvalidWord(word))
-      dispatch(resetLetters())
+      dispatch(resetWord())
     })
     .catch(err=>{
       console.log('ERROR:', err)
-      dispatch(resetLetters())
+      dispatch(resetWord())
     })
 }
 

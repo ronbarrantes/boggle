@@ -10,7 +10,7 @@ class LetterItem extends Component  {
 
   handleClick(event){
     console.log('IS_ACTIVE', this.props.isActive)
-    this.props.activateEverything()
+    this.props.toggleActive()
     this.props.setLetter(this.props.letterId)
   }
 

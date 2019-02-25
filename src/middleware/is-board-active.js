@@ -1,7 +1,7 @@
-import { SET_LETTER_VISITED } from '../constants/action-types'
+import { SET_LETTER } from '../constants/action-types'
 
 const isBoardActive = ({ getState }) => next => action => {
-  if(action.type !== SET_LETTER_VISITED){
+  if(action.type !== SET_LETTER){
     return next(action)
   }
 

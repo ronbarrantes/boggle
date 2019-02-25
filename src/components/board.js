@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {  setBoardActive, setLetter, resetLetters, activateEverything } from '../actions/board'
-import { checkWord, addLetter } from '../actions/word'
+import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
+import { checkWord, addLetter, setLetter, resetWord } from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
@@ -20,20 +20,21 @@ class Board extends Component {
       lettersById,
       lettersByHash,
       setBoardActive,
-      resetLetters,
+      resetWord,
       activateEverything,
       setLetter,
       isActive,
       addLetter,
+      toggleActive,
     } = this.props
 
     return (
       <div className='board'>
         <WordGuess word={word}
-          resetLetters={resetLetters}
+          resetWord={resetWord}
         />
         <div className='boundary sides'
-          onMouseEnter={resetLetters}
+          onMouseEnter={resetWord}
         ></div>
         <ul>
           {lettersById.map((letterId)=>
@@ -46,8 +47,9 @@ class Board extends Component {
               letter={lettersByHash[letterId].letter}
               isVisited={lettersByHash[letterId].isVisited}
               // checkIfVisited={checkIfVisited}
+              toggleActive={toggleActive}
               addLetter={addLetter}
-              resetLetters={resetLetters}
+              resetWord={resetWord}
               setLetter={setLetter}
               setBoardActive={setBoardActive}
               checkWord={checkWord}
@@ -57,10 +59,10 @@ class Board extends Component {
           )}
         </ul>
         <div className='boundary sides'
-          onMouseEnter={resetLetters}
+          onMouseEnter={resetWord}
         ></div>
         <div className='boundary bottom'
-          onMouseEnter={resetLetters}
+          onMouseEnter={resetWord}
         ></div>
       </div>
     )
@@ -77,10 +79,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   setBoardActive,
   setLetter,
-  resetLetters,
+  resetWord,
   checkWord,
   activateEverything,
   addLetter,
+  toggleActive,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

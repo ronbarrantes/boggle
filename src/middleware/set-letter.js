@@ -1,8 +1,8 @@
-import { SET_LETTER_VISITED } from '../constants/action-types'
+import { SET_LETTER } from '../constants/action-types'
 import { addLetter } from '../actions/word'
 
 const setLetter = ({ getState, dispatch }) => next => action => {
-  if(action.type !== SET_LETTER_VISITED)
+  if(action.type !== SET_LETTER)
     return next(action)
 
   const id = action.letterId

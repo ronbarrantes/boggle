@@ -1,8 +1,6 @@
 import {
   INIT_BOARD,
   SET_BOARD,
-  SET_LETTER_VISITED,
-  RESET_LETTERS,
   SET_LETTER_RESET,
   SET_BOARD_ACTIVE,
   TOGGLE_ACTIVE,
@@ -22,14 +20,6 @@ export const setBoardActive = () => ({
 
 export const toggleActive = () => ({
   type: TOGGLE_ACTIVE,
-})
-
-export const setLetter = (letterId) => ({
-  type: SET_LETTER_VISITED, letterId,
-})
-
-export const resetLetters = () => ({
-  type: RESET_LETTERS,
 })
 
 export const setLetterReset = (board) => ({
