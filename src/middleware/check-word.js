@@ -34,8 +34,6 @@ const checkWord = ({ getState, dispatch }) => next => action => {
       console.log('ERROR:', err)
       dispatch(resetLetters())
     })
-
-  console.log('GETTING HERE')
 }
 
 export default checkWord

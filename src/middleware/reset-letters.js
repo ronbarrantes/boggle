@@ -6,15 +6,11 @@ const resetLetters = ({ getState, dispatch }) => next => action => {
     return next(action)
   }
   const { board } = getState()
-
   if(board.isActive){
-    board.lettersById.map(id =>
-      board.lettersByHash[id].isVisited = false
-    )
-    board.isActive = false
-    dispatch(setLetterReset(board))
+    let lettersByHash = getState().board.lettersById.map(item =>
+      ({ ...board.lettersByHash[item], isVisited: false }))
+    dispatch(setLetterReset({ ...board, lettersByHash, isActive: false }))
   }
-
 }
 
 export default resetLetters

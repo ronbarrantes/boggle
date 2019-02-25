@@ -6,11 +6,9 @@ const setLetter = ({ getState, dispatch }) => next => action => {
     return next(action)
 
   const id = action.letterId
-  const letter = getState().board.lettersByHash[id].letter
+  const { letter } = getState().board.lettersByHash[id]
 
-  next(action)
   dispatch(addLetter(letter))
-
 }
 
 export default setLetter

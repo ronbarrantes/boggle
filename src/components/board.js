@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import {  setBoardActive, setLetterVisited, resetLetters } from '../actions/board'
-import { checkWord } from '../actions/word'
+import {  setBoardActive, setLetter, resetLetters, activateEverything } from '../actions/board'
+import { checkWord, addLetter } from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
@@ -12,39 +12,19 @@ class Board extends Component {
   constructor(props){
     super(props)
     this.state = { isActive : false }
-    this.handleToggle = this.handleToggle.bind(this)
-  }
-
-  handleToggle(){
-    console.log('LOGGING TOGGLE')
-    // this.props.isActive ? this.props.checkWord() : this.props.setBoardActive()
-  }
-
-  componentDidMount(){
-    console.log('DID MOUNT -->', this.props)
-  }
-
-  componentDidUpdate(prevProps){
-    console.log('DID UPDATE -->', prevProps)
-    // this.props.isActive ? this.props.checkWord() : this.props.setBoardActive()
-
-    if(this.props.isActive !== prevProps.isActive){
-      console.log('isActive-->', this.props.isActive)
-    }
   }
 
   render(){
     const {
       word,
       lettersById,
-      // getLetterId,
       lettersByHash,
-      // checkIfVisited,
-      // selectLetterHover,
-      // selectLetterToggle,
       setBoardActive,
       resetLetters,
+      activateEverything,
+      setLetter,
       isActive,
+      addLetter,
     } = this.props
 
     return (
@@ -66,11 +46,13 @@ class Board extends Component {
               letter={lettersByHash[letterId].letter}
               isVisited={lettersByHash[letterId].isVisited}
               // checkIfVisited={checkIfVisited}
-              handleToggle={this.handleToggle}
-              setLetterVisited={setLetterVisited}
+              addLetter={addLetter}
+              resetLetters={resetLetters}
+              setLetter={setLetter}
               setBoardActive={setBoardActive}
               checkWord={checkWord}
               isActive={isActive}
+              activateEverything={activateEverything}
             />
           )}
         </ul>
@@ -94,9 +76,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   setBoardActive,
-  setLetterVisited,
+  setLetter,
   resetLetters,
   checkWord,
+  activateEverything,
+  addLetter,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

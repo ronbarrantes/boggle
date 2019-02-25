@@ -27,10 +27,12 @@ const boardReducer = (board = initialState, action) => {
     }
 
     case SET_BOARD_ACTIVE:
-      return { ...board, isActive: !board.isActive }
+      return { ...board, isActive: true }
+
+    case 'TURN_ON':// to be deleted
+      return action.board
 
     case SET_LETTER_RESET:
-      console.log(action.board)
       return action.board
 
     case SET_BOARD: {

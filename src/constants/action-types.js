@@ -14,3 +14,5 @@ export const NO_WORD_ADDED = 'NO_WORD_ADDED'
 export const CHECK_WORD = 'CHECK_WORD'
 
 export const SET_BOARD_ACTIVE = 'SET_BOARD_ACTIVE'
+
+export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE'

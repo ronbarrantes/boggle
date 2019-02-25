@@ -5,8 +5,7 @@ const isBoardActive = ({ getState }) => next => action => {
     return next(action)
   }
 
-  const { isActive } = getState().board
-  if(isActive)
+  if(getState().board.isActive)
     next(action)
 }
 
