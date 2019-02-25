@@ -15,6 +15,7 @@ const initialState = {
 const boardReducer = (board = initialState, action) => {
   switch (action.type) {
     case SET_LETTER: {
+      console.log('Set letter')
       return ({
         ...board,
         lettersByHash: {

@@ -31,10 +31,10 @@ class Board extends Component {
     return (
       <div className='board'>
         <WordGuess word={word}
-          resetWord={resetWord}
+          // resetWord={resetWord}
         />
         <div className='boundary sides'
-          onMouseEnter={resetWord}
+          // onMouseEnter={resetWord}
         ></div>
         <ul>
           {lettersById.map((letterId)=>
@@ -59,10 +59,10 @@ class Board extends Component {
           )}
         </ul>
         <div className='boundary sides'
-          onMouseEnter={resetWord}
+          // onMouseEnter={resetWord}
         ></div>
         <div className='boundary bottom'
-          onMouseEnter={resetWord}
+          // onMouseEnter={resetWord}
         ></div>
       </div>
     )
@@ -79,7 +79,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   setBoardActive,
   setLetter,
-  resetWord,
+  // resetWord,
   checkWord,
   activateEverything,
   addLetter,

@@ -9,6 +9,7 @@ const setLetter = ({ getState, dispatch }) => next => action => {
   const { letter } = getState().board.lettersByHash[id]
 
   dispatch(addLetter(letter))
+  next(action)
 }
 
 export default setLetter

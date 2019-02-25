@@ -8,7 +8,6 @@ const toggleBoard = ({ getState, dispatch }) => next => action => {
   const { board, word } = getState()
   if (board.isActive && word){
     dispatch(checkWord())
-    console.log('LOGGING---->', board.isActive && !!word)
   }
 
   if(word && !board.isActive)
