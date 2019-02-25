@@ -14,7 +14,9 @@ class LetterItem extends Component  {
     console.log('clicking')
     // this.props.selectLetterToggle(letter)
     // this.props.getLetterId(this.props.letterId)
-    this.props.isActive ? this.props.checkWord() : this.props.setBoardActive()
+
+    this.props.handleToggle()
+    console.log('PROPS -->', this.props)
   }
 
   handleMouseEnter(event){

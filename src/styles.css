@@ -2,7 +2,6 @@
 
 *{
   box-sizing: border-box;
-  border: 1px dashed orange;
 }
 body{
   max-width: 1000px;
