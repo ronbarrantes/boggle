@@ -8,19 +8,14 @@ class LetterItem extends Component  {
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
   }
 
-  handleClick(event){
-    const { children, innerHTML } = event.target
-    let letter = children[0] ? children[0].innerHTML : innerHTML
-
-    this.props.selectLetterToggle(letter)
-    this.props.getLetterId(this.props.letterId)
+  handleClick(){
+    console.log('IS_ACTIVE', this.props.isActive)
+    this.props.toggleActive()
+    this.props.setLetter(this.props.letterId)
   }
 
-  handleMouseEnter(event){
-    let letter = event.target.innerHTML
-    this.props.selectLetterHover(letter)
-    this.props.getLetterId(this.props.letterId)
-    this.props.checkIfVisited(this.props.letterId)
+  handleMouseEnter(){
+    this.props.setLetter(this.props.letterId)
   }
 
   render(){
