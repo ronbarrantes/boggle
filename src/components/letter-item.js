@@ -8,13 +8,13 @@ class LetterItem extends Component  {
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
   }
 
-  handleClick(event){
+  handleClick(){
     console.log('IS_ACTIVE', this.props.isActive)
     this.props.toggleActive()
     this.props.setLetter(this.props.letterId)
   }
 
-  handleMouseEnter(event){
+  handleMouseEnter(){
     this.props.setLetter(this.props.letterId)
   }
 

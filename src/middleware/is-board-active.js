@@ -5,9 +5,9 @@ const isBoardActive = ({ getState, dispatch }) => next => action => {
     return next(action)
   }
 
-  if(getState().board.isActive){
+  if(getState().board.isActive)
     next(action)
-  }
+
 }
 
 export default isBoardActive

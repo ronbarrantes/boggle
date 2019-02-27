@@ -26,6 +26,7 @@ const checkWord = ({ getState, dispatch }) => next => action => {
   })
     .then(res => res.json())
     .then(res => {
+      console.log('FROM CHECKWORD', getState().board)
       next(action)
       res.valid ? dispatch(addValidWord(word)):dispatch(addInvalidWord(word))
       dispatch(resetWord())

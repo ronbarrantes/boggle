@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
-import { checkWord, addLetter, setLetter, resetWord } from '../actions/word'
+import { checkWord, addLetter, setLetter } from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
