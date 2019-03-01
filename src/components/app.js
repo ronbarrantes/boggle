@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initBoard } from '../actions/board'
 
@@ -7,29 +7,26 @@ import Board from './board'
 import WordList from './word-list'
 import '../styles.css'
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      errorMessage: '',
-    }
-  }
+const App = (props) => {
 
-  componentDidMount(){
-    this.props.initBoard()
-  }
 
-  render() {
+  // const [errorMessage, setErrorMessage ] = useState('')
+
+  useEffect(()=>
+    props.initBoard(), []
+  )
+
+
     return (
       <div className="App">
         <h1>Boggle</h1>
-        <p className='error'>{this.state.errorMessage}</p>
+        {/* <p className='error'>{errorMessage}</p> */}
         <Board/>
-        <WordList title={'Valid Words'} wordList={this.props.validWords} />
-        <WordList title={'Invalid Words'} wordList={this.props.invalidWords} />
+        <WordList title={'Valid Words'} wordList={props.validWords} />
+        <WordList title={'Invalid Words'} wordList={props.invalidWords} />
       </div>
     )
-  }
+  
 }
 
 const mapStateToProps = state => ({
