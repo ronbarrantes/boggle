@@ -9,24 +9,22 @@ import '../styles.css'
 
 const App = (props) => {
 
-
-  // const [errorMessage, setErrorMessage ] = useState('')
+  const [errorMessage, setErrorMessage ] = useState('')
 
   useEffect(()=>
     props.initBoard(), []
   )
 
+  return (
+    <div className="App">
+      <h1>Boggle</h1>
+      <p className='error'>{errorMessage}</p>
+      <Board/>
+      <WordList title={'Valid Words'} wordList={props.validWords} />
+      <WordList title={'Invalid Words'} wordList={props.invalidWords} />
+    </div>
+  )
 
-    return (
-      <div className="App">
-        <h1>Boggle</h1>
-        {/* <p className='error'>{errorMessage}</p> */}
-        <Board/>
-        <WordList title={'Valid Words'} wordList={props.validWords} />
-        <WordList title={'Invalid Words'} wordList={props.invalidWords} />
-      </div>
-    )
-  
 }
 
 const mapStateToProps = state => ({

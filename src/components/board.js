@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 
 import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
@@ -7,67 +7,57 @@ import { checkWord, addLetter, setLetter } from '../actions/word'
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
 
-class Board extends Component {
+const Board = (props) => {
 
-  constructor(props){
-    super(props)
-    this.state = { isActive : false }
-  }
+  const {
+    word,
+    lettersById,
+    lettersByHash,
+    setBoardActive,
+    resetWord,
+    activateEverything,
+    setLetter,
+    isActive,
+    addLetter,
+    toggleActive,
+  } = props
 
-  render(){
-    const {
-      word,
-      lettersById,
-      lettersByHash,
-      setBoardActive,
-      resetWord,
-      activateEverything,
-      setLetter,
-      isActive,
-      addLetter,
-      toggleActive,
-    } = this.props
-
-    return (
-      <div className='board'>
-        <WordGuess word={word}
-          // resetWord={resetWord}
-        />
-        <div className='boundary sides'
-          // onMouseEnter={resetWord}
-        ></div>
-        <ul>
-          {lettersById.map((letterId)=>
-            <LetterItem
-              key={letterId}
-              letterId={letterId}
-              // getLetterId={getLetterId}
-              // selectLetterHover={selectLetterHover}
-              // selectLetterToggle={selectLetterToggle}
-              letter={lettersByHash[letterId].letter}
-              isVisited={lettersByHash[letterId].isVisited}
-              // checkIfVisited={checkIfVisited}
-              toggleActive={toggleActive}
-              addLetter={addLetter}
-              resetWord={resetWord}
-              setLetter={setLetter}
-              setBoardActive={setBoardActive}
-              checkWord={checkWord}
-              isActive={isActive}
-              activateEverything={activateEverything}
-            />
-          )}
-        </ul>
-        <div className='boundary sides'
-          // onMouseEnter={resetWord}
-        ></div>
-        <div className='boundary bottom'
-          // onMouseEnter={resetWord}
-        ></div>
-      </div>
-    )
-  }
+  return (
+    <div className='board'>
+      <WordGuess word={word}
+        // resetWord={resetWord}
+      />
+      <div className='boundary sides'
+        // onMouseEnter={resetWord}
+      ></div>
+      <ul>
+        {lettersById.map((letterId)=>
+          <LetterItem
+            key={letterId}
+            letterId={letterId}
+            letter={lettersByHash[letterId].letter}
+            isVisited={lettersByHash[letterId].isVisited}
+            toggleActive={toggleActive}
+            addLetter={addLetter}
+            resetWord={resetWord}
+            setLetter={setLetter}
+            setBoardActive={setBoardActive}
+            checkWord={checkWord}
+            isActive={isActive}
+            activateEverything={activateEverything}
+          />
+        )}
+      </ul>
+      <div className='boundary sides'
+        // onMouseEnter={resetWord}
+      ></div>
+      <div className='boundary bottom'
+        // onMouseEnter={resetWord}
+      ></div>
+    </div>
+  )
 }
+
 
 const mapStateToProps = state => ({
   word: state.word,

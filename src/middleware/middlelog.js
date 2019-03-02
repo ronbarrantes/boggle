@@ -1,8 +1,8 @@
 
 
-const middle = ({getState}) => next => action => {
+const middle = ({ getState }) => next => action => {
 
-  console.log('+STATE::',action, 'isActive', getState().board.isActive, )
+  console.log('+STATE::',action, 'isActive', getState().board.isActive,)
   next(action)
 }
 
