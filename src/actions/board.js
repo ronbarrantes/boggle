@@ -26,10 +26,3 @@ export const setLetterReset = (board) => ({
   type: SET_LETTER_RESET, board,
 })
 
-export const activateEverything = () => ({
-  type: 'ACTIVATE_FUCKING_EVERYTHING',
-})
-
-export const turnEverythingOn = (board) => ({
-  type: 'TURN_ON', board,
-})

@@ -5,7 +5,7 @@ const setLetter = ({ getState, dispatch }) => next => action => {
   if(action.type !== SET_LETTER)
     return next(action)
 
-  const id = action.letterId
+  const id = action.tileId
   const { letter } = getState().board.tiles[id]
 
   dispatch(addLetter(letter))

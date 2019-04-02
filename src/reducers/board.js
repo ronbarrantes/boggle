@@ -19,8 +19,8 @@ const boardReducer = (board = initialState, action) => {
         ...board,
         tiles: {
           ...board.tiles,
-          [action.letterId]: {
-            letter: board.tiles[action.letterId].letter,
+          [action.tileId]: {
+            letter: board.tiles[action.tileId].letter,
             isTileVisited: true,
           },
         },
@@ -42,7 +42,7 @@ const boardReducer = (board = initialState, action) => {
     case SET_BOARD: {
       const boardData = {
         isBoardActive: false,
-        tiles: action.board.byHash,
+        tiles: action.board,
       }
       return boardData
     }

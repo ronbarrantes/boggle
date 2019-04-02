@@ -8,12 +8,12 @@ const LetterItem = (props) =>  {
     console.log(`HANDLE CLICK`)
     // console.log('IS_ACTIVE', props.isBoardActive)
     // props.toggleActive()
-    // props.setLetter(props.letterId)
+    // props.setLetter(props.tileId)
   }
 
   const handleMouseEnter = () => {
     console.log('HANDLE MOUSE EVENT')
-    // props.setLetter(props.letterId)
+    // props.setLetter(props.tileId)
   }
 
 
@@ -33,8 +33,8 @@ const LetterItem = (props) =>  {
 
 const mapStateToProps = (state, props) => {
   return {
-    letter: letter(state, props.letterId),
-    isTileVisited: isTileVisited(state, props.letterId),
+    letter: letter(state, props.tileId),
+    isTileVisited: isTileVisited(state, props.tileId),
   }
 }
 

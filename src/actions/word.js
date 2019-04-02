@@ -4,8 +4,8 @@ export const addLetter = (letter) => ({
   type: ADD_LETTER, letter,
 })
 
-export const setLetter = (letterId) => ({
-  type: SET_LETTER, letterId,
+export const setLetter = (tileId) => ({
+  type: SET_LETTER, tileId,
 })
 
 export const resetWord = () => ({

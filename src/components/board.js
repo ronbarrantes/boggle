@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 
 // import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
 import {
-  checkWord,
-  // addLetter,
-  //  setLetter,
+// checkWord,
+// addLetter,
+// setLetter,
 } from '../actions/word'
 
 import LetterItem from './letter-item'
@@ -14,16 +14,17 @@ import { tiles, isBoardActive  } from '../reducers'
 
 const Board = (props) => {
 
+  console.log('BOARD_PROPS', props)
   const {
     word,
     tiles,
-    setBoardActive,
-    resetWord,
-    activateEverything,
-    setLetter,
-    isBoardActive,
-    addLetter,
-    toggleActive,
+    // resetWord,
+    // setBoardActive,
+    // activateEverything,
+    // setLetter,
+    // isBoardActive,
+    // addLetter,
+    // toggleActive,
   } = props
 
   return (
@@ -35,18 +36,19 @@ const Board = (props) => {
         // onMouseEnter={resetWord}
       ></div>
       <ul>
-        {Object.keys(tiles).map((letterId)=>
+        {Object.keys(tiles).map((tileId)=>
           <LetterItem
-            key={letterId}
-            letterId={letterId}
-            toggleActive={toggleActive}
-            addLetter={addLetter}
-            resetWord={resetWord}
-            setLetter={setLetter}
-            setBoardActive={setBoardActive}
-            checkWord={checkWord}
+            key={tileId}
+            tileId={tileId}
             isBoardActive={isBoardActive}
-            activateEverything={activateEverything}
+
+            // checkWord={checkWord}
+            // toggleActive={toggleActive}
+            // addLetter={addLetter}
+            // resetWord={resetWord}
+            // setLetter={setLetter}
+            // setBoardActive={setBoardActive}
+            // activateEverything={activateEverything}
           />
         )}
       </ul>
@@ -69,7 +71,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   // setBoardActive,
   // setLetter,
-  // // resetWord,
+  // resetWord: () => console.log('RESETTING'),
   // checkWord,
   // activateEverything,
   // addLetter,
