@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 // import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
+
 import {
 // checkWord,
 // addLetter,
@@ -69,13 +70,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  // setBoardActive,
-  // setLetter,
-  // resetWord: () => console.log('RESETTING'),
-  // checkWord,
-  // activateEverything,
-  // addLetter,
-  // toggleActive,
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

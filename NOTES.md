@@ -1,26 +1,23 @@
 # Boggle flow
+
 ## what has to happen
-### First Click (ON)
+### activateBoard [first click]
 - activates board
-- enables selecting (hovering)
-- selects first letter
+- enables selecting/hovering
+- **activateLetter()**
+
+### activateLetter [Hovering]
+- selects letter
 - add letter to adder
-- turn first letter on
+- turn letter on
 
-### Hovering 
-- add letters to adder
-- turn letters on
-
-### Second Click (OFF)
+### deactivateBoard
 - deactivates board
 - turn all the letters off
 - disables selecting (hovering)
+- clears letter adder
+
+### checkWord [Second Click] 
+- **deactivateBoard**
 - checks for the word
   - adds to correct|incorrect list
-- clears the letter adder
-
-### Invalid Input (out of bounds||select same letter)
-- deactivates board
-- turns off all the letters
-- disables selecting (hovering)
-- clear letter adder

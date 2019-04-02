@@ -2,19 +2,12 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './reducers'
 import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
-import resetLetters from './middleware/reset-letters'
 import checkWord from './middleware/check-word'
 import setLetter from './middleware/set-letter'
-import isBoardActive from './middleware/is-board-active'
-import toggleBoard from './middleware/toggle-board'
-
 
 const middleware = [
   initBoard,
   checkWord,
-  isBoardActive,
-  toggleBoard,
-  resetLetters,
   setLetter,
   logMiddleware,
 ]
