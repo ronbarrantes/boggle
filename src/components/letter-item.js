@@ -38,5 +38,5 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect (mapStateToProps) (LetterItem)
+export default connect (mapStateToProps)(LetterItem)
 

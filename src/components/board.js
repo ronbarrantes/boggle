@@ -1,13 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-// import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
-
-import {
-// checkWord,
-// addLetter,
-// setLetter,
-} from '../actions/word'
+import {} from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
@@ -19,13 +13,7 @@ const Board = (props) => {
   const {
     word,
     tiles,
-    // resetWord,
-    // setBoardActive,
-    // activateEverything,
-    // setLetter,
-    // isBoardActive,
-    // addLetter,
-    // toggleActive,
+
   } = props
 
   return (
@@ -33,32 +21,18 @@ const Board = (props) => {
       <WordGuess word={word}
         // resetWord={resetWord}
       />
-      <div className='boundary sides'
-        // onMouseEnter={resetWord}
-      ></div>
+      <div className='boundary sides'></div>
       <ul>
         {Object.keys(tiles).map((tileId)=>
           <LetterItem
             key={tileId}
             tileId={tileId}
             isBoardActive={isBoardActive}
-
-            // checkWord={checkWord}
-            // toggleActive={toggleActive}
-            // addLetter={addLetter}
-            // resetWord={resetWord}
-            // setLetter={setLetter}
-            // setBoardActive={setBoardActive}
-            // activateEverything={activateEverything}
           />
         )}
       </ul>
-      <div className='boundary sides'
-        // onMouseEnter={resetWord}
-      ></div>
-      <div className='boundary bottom'
-        // onMouseEnter={resetWord}
-      ></div>
+      <div className='boundary sides'></div>
+      <div className='boundary bottom'></div>
     </div>
   )
 }
@@ -69,8 +43,6 @@ const mapStateToProps = state => ({
   isBoardActive: isBoardActive(state),
 })
 
-const mapDispatchToProps = {
-
-}
+const mapDispatchToProps = {}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

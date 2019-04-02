@@ -1,6 +1,7 @@
 # Boggle flow
 
 ## what has to happen
+
 ### activateBoard [first click]
 - activates board
 - enables selecting/hovering
