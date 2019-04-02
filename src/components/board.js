@@ -5,7 +5,7 @@ import {} from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
-import { tiles, isBoardActive  } from '../reducers'
+import { word, tiles, isBoardActive  } from '../reducers'
 
 const Board = (props) => {
 
@@ -38,7 +38,7 @@ const Board = (props) => {
 }
 
 const mapStateToProps = state => ({
-  word: state.word,
+  word: word(state),
   tiles: tiles(state),
   isBoardActive: isBoardActive(state),
 })

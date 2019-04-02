@@ -21,4 +21,6 @@ const wordReducer = (word = initialState, action) => {
   }
 }
 
+export const word = state => state.word
+
 export default wordReducer

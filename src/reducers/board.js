@@ -1,9 +1,6 @@
 import {
-  SET_BOARD,
-  SET_LETTER_RESET,
-  SET_LETTER,
-  SET_BOARD_ACTIVE,
-  TOGGLE_ACTIVE,
+  SET_BOARD, SET_LETTER_RESET, SET_LETTER,
+  SET_BOARD_ACTIVE, TOGGLE_ACTIVE,
 } from '../constants/action-types'
 
 const initialState = {
