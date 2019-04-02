@@ -11,7 +11,6 @@ const Board = (props) => {
 
   const {
     word,
-    lettersById,
     lettersByHash,
     setBoardActive,
     resetWord,
@@ -31,7 +30,7 @@ const Board = (props) => {
         // onMouseEnter={resetWord}
       ></div>
       <ul>
-        {lettersById.map((letterId)=>
+        {Object.keys(lettersByHash).map((letterId)=>
           <LetterItem
             key={letterId}
             letterId={letterId}
@@ -61,7 +60,6 @@ const Board = (props) => {
 
 const mapStateToProps = state => ({
   word: state.word,
-  lettersById: state.board.lettersById,
   lettersByHash: state.board.lettersByHash,
   isActive: state.board.isActive,
 })

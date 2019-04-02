@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from './reducers/root'
+import rootReducer from './reducers'
 import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
 import resetLetters from './middleware/reset-letters'

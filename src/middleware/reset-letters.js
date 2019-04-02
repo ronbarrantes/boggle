@@ -8,9 +8,9 @@ const resetLetters = ({ getState, dispatch }) => next => action => {
   // if(board.isActive)
 
   let { board } = getState()
-  let { lettersByHash, lettersById } = board
+  let { lettersByHash } = board
 
-  lettersById.forEach(item => {
+  Object.keys(lettersByHash).forEach(item => {
     lettersByHash[item].isVisited = false
   })
 

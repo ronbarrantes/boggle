@@ -1,8 +1,8 @@
 import { ADD_VALID_WORD, ADD_INVALID_WORD } from '../constants/action-types'
 
 const initialState = {
-  validWords:[],
-  invalidWords:[],
+  validWords:['hello'],
+  invalidWords:['notaword'],
 }
 
 const wordListReducer = (wordList = initialState, action) => {
@@ -23,5 +23,8 @@ const wordListReducer = (wordList = initialState, action) => {
       return wordList
   }
 }
+
+export const validWords = (state) => state.wordList.validWords
+export const invalidWords = (state) => state.wordList.invalidWords
 
 export default wordListReducer

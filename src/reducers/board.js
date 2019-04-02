@@ -8,7 +8,6 @@ import {
 
 const initialState = {
   isActive: false,
-  lettersById: [],
   lettersByHash: {},
 }
 
@@ -43,7 +42,6 @@ const boardReducer = (board = initialState, action) => {
     case SET_BOARD: {
       const boardData = {
         isActive: false,
-        lettersById: action.board.byId,
         lettersByHash: action.board.byHash,
       }
       return boardData

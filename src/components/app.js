@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { initBoard } from '../actions/board'
 
+import { validWords, invalidWords } from '../reducers'
 
 import Board from './board'
 import WordList from './word-list'
@@ -9,7 +10,7 @@ import '../styles.css'
 
 const App = (props) => {
 
-  const [errorMessage, setErrorMessage ] = useState('')
+  const [errorMessage ] = useState('')
 
   useEffect(()=>
     props.initBoard(), []
@@ -28,8 +29,8 @@ const App = (props) => {
 }
 
 const mapStateToProps = state => ({
-  validWords: state.wordList.validWords,
-  invalidWords: state.wordList.invalidWords,
+  validWords: validWords(state),
+  invalidWords: invalidWords(state),
 })
 
 const mapDispatchToProps = {
