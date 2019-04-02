@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 
-import wordReducer, * as fromWord from './word'
-import boardReducer, * as fromBoard from './board'
-import wordListReducer, * as fromWordList from './word-list'
+import wordReducer, * as fromWordReducer from './word'
+import boardReducer, * as fromBoardReducer from './board'
+import wordListReducer, * as fromWordListReducer from './word-list'
 
 const rootReducer = combineReducers({
   word: wordReducer,
@@ -10,14 +10,12 @@ const rootReducer = combineReducers({
   wordList :wordListReducer,
 })
 
-export const word = state => fromWord.word(state)
-
-export const validWords = state => fromWordList.validWords(state)
-export const invalidWords = state => fromWordList.invalidWords(state)
-
-export const tiles = state => fromBoard.tiles(state)
-export const letter = (state, id) => fromBoard.letter(state, id)
-export const isBoardActive = state => fromBoard.isBoardActive(state)
-export const isTileVisited = (state, id) => fromBoard.isTileVisited(state, id)
+export const word = state => fromWordReducer.word(state)
+export const validWords = state => fromWordListReducer.validWords(state)
+export const invalidWords = state => fromWordListReducer.invalidWords(state)
+export const tiles = state => fromBoardReducer.tiles(state)
+export const letter = (state, id) => fromBoardReducer.letter(state, id)
+export const isBoardActive = state => fromBoardReducer.isBoardActive(state)
+export const isTileVisited = (state, id) => fromBoardReducer.isTileVisited(state, id)
 
 export default rootReducer

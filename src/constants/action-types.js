@@ -17,8 +17,9 @@ export const SET_BOARD_ACTIVE = 'SET_BOARD_ACTIVE'
 
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE'
 
-/*
+// TODO: Consolidate the current constants
 
+/*
 ACTIVATE_BOARD
 ENABLE_BOARD_HOVER || TOGGLE_BOARD_HOVER ***
 

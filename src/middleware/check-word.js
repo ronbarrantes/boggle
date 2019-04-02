@@ -38,3 +38,10 @@ const checkWord = ({ getState, dispatch }) => next => action => {
 }
 
 export default checkWord
+
+// TODO: Do this middleware logic
+
+// ### checkWord [Second Click]
+// - **deactivateBoard**
+// - checks for the word
+//   - adds to correct|incorrect list

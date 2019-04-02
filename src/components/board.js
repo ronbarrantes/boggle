@@ -8,8 +8,6 @@ import WordGuess from './word-guess'
 import { word, tiles, isBoardActive  } from '../reducers'
 
 const Board = (props) => {
-
-  console.log('BOARD_PROPS', props)
   const {
     word,
     tiles,
@@ -19,9 +17,11 @@ const Board = (props) => {
   return (
     <div className='board'>
       <WordGuess word={word}
-        // resetWord={resetWord}
+        // reset word here
       />
-      <div className='boundary sides'></div>
+      <div className='boundary sides'>
+        {/* reset word */}
+      </div>
       <ul>
         {Object.keys(tiles).map((tileId)=>
           <LetterItem
@@ -31,8 +31,12 @@ const Board = (props) => {
           />
         )}
       </ul>
-      <div className='boundary sides'></div>
-      <div className='boundary bottom'></div>
+      <div className='boundary sides'>
+        {/* reset word */}
+      </div>
+      <div className='boundary bottom'>
+        {/* reset word */}
+      </div>
     </div>
   )
 }

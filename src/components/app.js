@@ -12,7 +12,7 @@ const App = ({ initBoard, validWords, invalidWords }) => {
 
   const [errorMessage ] = useState('')
 
-  useEffect(()=>
+  useEffect(() =>
     initBoard(), []
   )
 
@@ -25,7 +25,6 @@ const App = ({ initBoard, validWords, invalidWords }) => {
       <WordList title={'Invalid Words'} wordList={invalidWords} />
     </div>
   )
-
 }
 
 const mapStateToProps = state => ({

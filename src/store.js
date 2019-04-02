@@ -7,14 +7,14 @@ import checkWord from './middleware/check-word'
 import isBoardActive from './middleware/is-board-active'
 
 import activateBoard from './middleware/activate-board'
-import activateLetter from './middleware/activate-letter'
+import selectLetter from './middleware/select-letter'
 import deactivateBoard from './middleware/deactivate-board'
 
 const middleware = [
   initBoard,
   isBoardActive,
   activateBoard,
-  activateLetter,
+  selectLetter,
   deactivateBoard,
   checkWord,
   logMiddleware,
