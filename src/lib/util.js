@@ -38,7 +38,7 @@ const generateLetterArray = () => {
 // Use by Id and Hash pattern
 const createBoardData = (arr) => {
   const boardData = {}
-  const boardProps = { isVisited: false }
+  const boardProps = { isTileVisited: false }
   boardData['byId'] = []
   boardData['byHash'] = {}
   arr.forEach((letter, i) => {

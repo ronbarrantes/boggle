@@ -6,7 +6,7 @@ const setLetter = ({ getState, dispatch }) => next => action => {
     return next(action)
 
   const id = action.letterId
-  const { letter } = getState().board.lettersByHash[id]
+  const { letter } = getState().board.tiles[id]
 
   dispatch(addLetter(letter))
   next(action)

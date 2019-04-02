@@ -7,11 +7,11 @@ const toggleBoard = ({ getState, dispatch }) => next => action => {
 
   const { board, word } = getState()
 
-  if (board.isActive && word){
+  if (board.isBoardActive && word){
     dispatch(checkWord())
   }
 
-  if(word && !board.isActive)
+  if(word && !board.isBoardActive)
   {
     dispatch(resetWord())
   }

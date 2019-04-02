@@ -7,8 +7,8 @@ import {
 } from '../constants/action-types'
 
 const initialState = {
-  isActive: false,
-  lettersByHash: {},
+  isBoardActive: false,
+  tiles: {},
 }
 
 const boardReducer = (board = initialState, action) => {
@@ -17,21 +17,21 @@ const boardReducer = (board = initialState, action) => {
       console.log('Set letter')
       return ({
         ...board,
-        lettersByHash: {
-          ...board.lettersByHash,
+        tiles: {
+          ...board.tiles,
           [action.letterId]: {
-            letter: board.lettersByHash[action.letterId].letter,
-            isVisited: true,
+            letter: board.tiles[action.letterId].letter,
+            isTileVisited: true,
           },
         },
       })
     }
 
     case SET_BOARD_ACTIVE:
-      return { ...board, isActive: true }
+      return { ...board, isBoardActive: true }
 
     case TOGGLE_ACTIVE:
-      return { ...board, isActive: !board.isActive }
+      return { ...board, isBoardActive: !board.isBoardActive }
 
     case 'TURN_ON':// to be deleted
       return action.board
@@ -41,8 +41,8 @@ const boardReducer = (board = initialState, action) => {
 
     case SET_BOARD: {
       const boardData = {
-        isActive: false,
-        lettersByHash: action.board.byHash,
+        isBoardActive: false,
+        tiles: action.board.byHash,
       }
       return boardData
     }
@@ -51,5 +51,11 @@ const boardReducer = (board = initialState, action) => {
       return board
   }
 }
+
+export const tiles = (state) => state.board.tiles
+export const isBoardActive = (state) => state.board.isBoardActive
+
+export const letter = (state, id) => state.board.tiles[id].letter
+export const isTileVisited = (state, id) => state.board.tiles[id].isTileVisited
 
 export default boardReducer

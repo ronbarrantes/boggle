@@ -5,16 +5,16 @@ const resetLetters = ({ getState, dispatch }) => next => action => {
   if(action.type !== RESET_WORD){
     return next(action)
   }
-  // if(board.isActive)
+  // if(board.isBoardActive)
 
   let { board } = getState()
-  let { lettersByHash } = board
+  let { tiles } = board
 
-  Object.keys(lettersByHash).forEach(item => {
-    lettersByHash[item].isVisited = false
+  Object.keys(tiles).forEach(item => {
+    tiles[item].isTileVisited = false
   })
 
-  dispatch(setLetterReset({ ...board, lettersByHash, isActive: false }))
+  dispatch(setLetterReset({ ...board, tiles, isBoardActive: false }))
 }
 
 export default resetLetters

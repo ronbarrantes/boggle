@@ -8,12 +8,12 @@ import Board from './board'
 import WordList from './word-list'
 import '../styles.css'
 
-const App = (props) => {
+const App = ({ initBoard, validWords, invalidWords }) => {
 
   const [errorMessage ] = useState('')
 
   useEffect(()=>
-    props.initBoard(), []
+    initBoard(), []
   )
 
   return (
@@ -21,8 +21,8 @@ const App = (props) => {
       <h1>Boggle</h1>
       <p className='error'>{errorMessage}</p>
       <Board/>
-      <WordList title={'Valid Words'} wordList={props.validWords} />
-      <WordList title={'Invalid Words'} wordList={props.invalidWords} />
+      <WordList title={'Valid Words'} wordList={validWords} />
+      <WordList title={'Invalid Words'} wordList={invalidWords} />
     </div>
   )
 

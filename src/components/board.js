@@ -1,22 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
-import { checkWord, addLetter, setLetter } from '../actions/word'
+// import {  setBoardActive, activateEverything, toggleActive } from '../actions/board'
+import {
+  checkWord,
+  // addLetter,
+  //  setLetter,
+} from '../actions/word'
 
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
+import { tiles, isBoardActive  } from '../reducers'
 
 const Board = (props) => {
 
   const {
     word,
-    lettersByHash,
+    tiles,
     setBoardActive,
     resetWord,
     activateEverything,
     setLetter,
-    isActive,
+    isBoardActive,
     addLetter,
     toggleActive,
   } = props
@@ -30,19 +35,17 @@ const Board = (props) => {
         // onMouseEnter={resetWord}
       ></div>
       <ul>
-        {Object.keys(lettersByHash).map((letterId)=>
+        {Object.keys(tiles).map((letterId)=>
           <LetterItem
             key={letterId}
             letterId={letterId}
-            letter={lettersByHash[letterId].letter}
-            isVisited={lettersByHash[letterId].isVisited}
             toggleActive={toggleActive}
             addLetter={addLetter}
             resetWord={resetWord}
             setLetter={setLetter}
             setBoardActive={setBoardActive}
             checkWord={checkWord}
-            isActive={isActive}
+            isBoardActive={isBoardActive}
             activateEverything={activateEverything}
           />
         )}
@@ -57,21 +60,20 @@ const Board = (props) => {
   )
 }
 
-
 const mapStateToProps = state => ({
   word: state.word,
-  lettersByHash: state.board.lettersByHash,
-  isActive: state.board.isActive,
+  tiles: tiles(state),
+  isBoardActive: isBoardActive(state),
 })
 
 const mapDispatchToProps = {
-  setBoardActive,
-  setLetter,
-  // resetWord,
-  checkWord,
-  activateEverything,
-  addLetter,
-  toggleActive,
+  // setBoardActive,
+  // setLetter,
+  // // resetWord,
+  // checkWord,
+  // activateEverything,
+  // addLetter,
+  // toggleActive,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

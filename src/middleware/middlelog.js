@@ -2,7 +2,7 @@
 
 const middle = ({ getState }) => next => action => {
 
-  console.log('+STATE::',action, 'isActive', getState().board.isActive,)
+  console.log('+STATE::',action, 'isBoardActive', getState().board.isBoardActive,)
   next(action)
 }
 

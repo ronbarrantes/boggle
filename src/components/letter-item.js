@@ -1,18 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { letter, isTileVisited } from '../reducers'
 
 const LetterItem = (props) =>  {
-
   const handleClick = () =>{
-    console.log('IS_ACTIVE', props.isActive)
-    props.toggleActive()
-    props.setLetter(props.letterId)
+    console.log(`HANDLE CLICK`)
+    // console.log('IS_ACTIVE', props.isBoardActive)
+    // props.toggleActive()
+    // props.setLetter(props.letterId)
   }
 
   const handleMouseEnter = () => {
-    props.setLetter(props.letterId)
+    console.log('HANDLE MOUSE EVENT')
+    // props.setLetter(props.letterId)
   }
 
-  const liClass = ['letter-item', props.isVisited && 'visited'].join(' ')
+
+  const liClass = ['letter-item', props.isTileVisited && 'visited'].join(' ')
   return(
     <li
       onClick={handleClick}
@@ -26,5 +31,12 @@ const LetterItem = (props) =>  {
   )
 }
 
-export default LetterItem
+const mapStateToProps = (state, props) => {
+  return {
+    letter: letter(state, props.letterId),
+    isTileVisited: isTileVisited(state, props.letterId),
+  }
+}
+
+export default connect (mapStateToProps) (LetterItem)
 
