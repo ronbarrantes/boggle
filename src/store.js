@@ -3,16 +3,14 @@ import rootReducer from './reducers'
 
 import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
-import checkWord from './middleware/check-word'
-import isBoardActive from './middleware/is-board-active'
 
+import checkWord from './middleware/check-word'
 import activateBoard from './middleware/activate-board'
 import selectLetter from './middleware/select-letter'
 import deactivateBoard from './middleware/deactivate-board'
 
 const middleware = [
   initBoard,
-  isBoardActive,
   activateBoard,
   selectLetter,
   deactivateBoard,
