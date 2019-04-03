@@ -1,8 +1,7 @@
 // TODO: Use reselect on toggles
-
 import {
   SET_BOARD, SET_LETTER_RESET, SET_LETTER,
-  SET_BOARD_ACTIVE, TOGGLE_ACTIVE,
+  ENABLE_BOARD_ACTIVE, TOGGLE_BOARD_ACTIVE, DISABLE_BOARD_ACTIVE,
 } from '../constants/action-types'
 
 const initialState = {
@@ -26,10 +25,13 @@ const boardReducer = (board = initialState, action) => {
       })
     }
 
-    case SET_BOARD_ACTIVE:
+    case ENABLE_BOARD_ACTIVE:
       return { ...board, isBoardActive: true }
 
-    case TOGGLE_ACTIVE:
+    case DISABLE_BOARD_ACTIVE:
+      return { ...board, isBoardActive: false }
+
+    case TOGGLE_BOARD_ACTIVE:
       return { ...board, isBoardActive: !board.isBoardActive }
 
     case 'TURN_ON':// to be deleted

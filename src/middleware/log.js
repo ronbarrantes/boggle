@@ -1,6 +1,5 @@
 const logMiddleware = ({ getState , dispatch }) => (next) => (action) => {
-  console.log('Action:', action)
-  // console.log('--------')
+  console.log('ACTION->', action)
   next(action)
 }
 

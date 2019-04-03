@@ -1,5 +1,10 @@
-const activateBoard = () => next => action => {
-  next(action)
+import { ACTIVATE_BOARD } from '../constants/action-types'
+import { board } from '../actions'
+
+const activateBoard = ({getState, dispatch}) => next => action => {
+  if(action.type !== ACTIVATE_BOARD)
+    return next(action)
+  dispatch(board.toggleActive())
 }
 
 export default activateBoard
