@@ -1,7 +1,8 @@
 import {  SET_BOARD_INACTIVE } from '../constants/action-types'
 
-import { isBoardActive, tiles, isTileVisited } from '../reducers'
-import { setLetterReset } from '../actions/board'
+import { isBoardActive, tiles } from '../reducers'
+
+import { resetWord } from '../actions/word'
 
 const resetLetters = (letters) => (
   Object.keys(letters).forEach((item) => {
@@ -9,7 +10,7 @@ const resetLetters = (letters) => (
   })
 )
 
-const deactivateBoard = ({ getState }) => next => action => {
+const deactivateBoard = ({ getState, dispatch }) => next => action => {
   if(action.type !== SET_BOARD_INACTIVE)
     return next(action)
 
@@ -19,16 +20,10 @@ const deactivateBoard = ({ getState }) => next => action => {
   if (isActive) {
     console.log('Deactivating')
     resetLetters(theTiles)
+    dispatch(resetWord())
     next(action)
   }
 }
 
 export default deactivateBoard
 
-// TODO: Do this middleware logic
-
-// ### deactivateBoard
-// - deactivates board
-// - turn all the letters off
-// - disables selecting (hovering)
-// - clears letter adder

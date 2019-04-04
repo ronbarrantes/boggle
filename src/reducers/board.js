@@ -15,7 +15,6 @@ const initialState = {
 const boardReducer = (board = initialState, action) => {
   switch (action.type) {
     case SET_LETTER: {
-      console.log('Set letter')
       return ({
         ...board,
         tiles: {
@@ -57,6 +56,7 @@ const boardReducer = (board = initialState, action) => {
 }
 
 export const tiles = createSelector((state) => state.board.tiles, tiles => tiles)
+// export const tiles = (state) => state.board.tiles
 export const isBoardActive = (state) => state.board.isBoardActive
 export const letter = (state, id) => state.board.tiles[id].letter
 export const isTileVisited = (state, id) => state.board.tiles[id].isTileVisited
