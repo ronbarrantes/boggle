@@ -1,7 +1,6 @@
 export const INIT_BOARD = 'INIT_BOARD'
 export const SET_BOARD = 'SET_BOARD'
 
-export const SET_LETTER_RESET = 'SET_LETTER_RESET'
 export const RESET_WORD = 'RESET_WORD'
 
 export const SET_LETTER = 'SET_LETTER'
@@ -13,29 +12,8 @@ export const NO_WORD_ADDED = 'NO_WORD_ADDED'
 
 export const CHECK_WORD = 'CHECK_WORD'
 
-
-
-
-
-// TODO: Consolidate the current constants
-// ACTIVATE_BOARD
-export const ACTIVATE_BOARD = 'ACTIVATE_BOARD'
-// ENABLE_BOARD_HOVER || TOGGLE_BOARD_HOVER ***
-export const SET_BOARD_ACTIVE = 'SET_BOARD_ACTIVE'
 export const TOGGLE_BOARD_ACTIVE = 'TOGGLE_BOARD_ACTIVE'
 export const SET_BOARD_INACTIVE = 'SET_BOARD_INACTIVE'
 
 export const SELECT_LETTER = 'SELECT_LETTER'
-// ADD_LETTER
-// TURN_TILE_ON
-
-// DISABLE_BOARD
-// TILE_RESET
-// DISABLE_BOARD_HOVER ***
-// CLEAR_WORD
-
-// CHECK_WORD
-//   ADD_VALID_WORD
-//   ADD_INVALID_WORD
-
 

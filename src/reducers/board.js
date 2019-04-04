@@ -3,8 +3,8 @@
 import { createSelector } from 'reselect'
 
 import {
-  SET_BOARD, SET_LETTER_RESET, SET_LETTER,
-  SET_BOARD_ACTIVE, TOGGLE_BOARD_ACTIVE, SET_BOARD_INACTIVE,
+  SET_BOARD, SET_LETTER,
+  TOGGLE_BOARD_ACTIVE, SET_BOARD_INACTIVE,
 } from '../constants/action-types'
 
 const initialState = {
@@ -27,20 +27,11 @@ const boardReducer = (board = initialState, action) => {
       })
     }
 
-    case SET_BOARD_ACTIVE:
-      return { ...board, isBoardActive: true }
-
     case SET_BOARD_INACTIVE:
       return { ...board, isBoardActive: false }
 
     case TOGGLE_BOARD_ACTIVE:
       return { ...board, isBoardActive: !board.isBoardActive }
-
-    case 'TURN_ON':// to be deleted
-      return action.board
-
-    case SET_LETTER_RESET:
-      return action.board
 
     case SET_BOARD: {
       const boardData = {
@@ -56,7 +47,6 @@ const boardReducer = (board = initialState, action) => {
 }
 
 export const tiles = createSelector((state) => state.board.tiles, tiles => tiles)
-// export const tiles = (state) => state.board.tiles
 export const isBoardActive = (state) => state.board.isBoardActive
 export const letter = (state, id) => state.board.tiles[id].letter
 export const isTileVisited = (state, id) => state.board.tiles[id].isTileVisited
