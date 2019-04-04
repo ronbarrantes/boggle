@@ -5,15 +5,17 @@ import logMiddleware from './middleware/log'
 import initBoard from './middleware/init-board'
 
 import checkWord from './middleware/check-word'
-import activateBoard from './middleware/activate-board'
+import toggleBoard from './middleware/toggle-board'
 import activateLetter from './middleware/activate-letter'
+import resetLetters from './middleware/reset-letters'
 import deactivateBoard from './middleware/deactivate-board'
 
 const middleware = [
   initBoard,
-  activateBoard,
+  toggleBoard,
   activateLetter,
   deactivateBoard,
+  resetLetters,
   checkWord,
   logMiddleware,
 ]

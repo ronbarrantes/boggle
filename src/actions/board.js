@@ -2,8 +2,9 @@ import {
   INIT_BOARD,
   SET_BOARD,
   SET_LETTER_RESET,
-  ENABLE_BOARD_ACTIVE,
+  SET_BOARD_ACTIVE,
   TOGGLE_BOARD_ACTIVE,
+  SET_BOARD_INACTIVE,
   ACTIVATE_BOARD,
 } from '../constants/action-types'
 
@@ -20,7 +21,11 @@ export const activateBoard = () => ({
 })
 
 export const setBoardActive = () => ({
-  type: ENABLE_BOARD_ACTIVE,
+  type: SET_BOARD_ACTIVE,
+})
+
+export const setBoardInactive = () => ({
+  type: SET_BOARD_INACTIVE,
 })
 
 export const toggleActive = () => ({

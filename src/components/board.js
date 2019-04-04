@@ -6,6 +6,7 @@ import {} from '../actions/word'
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
 import { word, tiles, isBoardActive  } from '../reducers'
+import { board } from '../actions';
 
 const Board = (props) => {
   const {
@@ -17,10 +18,11 @@ const Board = (props) => {
   return (
     <div className='board'>
       <WordGuess word={word}
-        // reset word here
+        onMouseEnter={props.resetBoard}
       />
-      <div className='boundary sides'>
-        {/* reset word */}
+      <div className='boundary sides'
+        onMouseEnter={props.resetBoard}
+      >
       </div>
       <ul>
         {Object.keys(tiles).map((tileId)=>
@@ -31,11 +33,13 @@ const Board = (props) => {
           />
         )}
       </ul>
-      <div className='boundary sides'>
-        {/* reset word */}
+      <div className='boundary sides'
+      onMouseEnter={props.resetBoard}
+      >
       </div>
-      <div className='boundary bottom'>
-        {/* reset word */}
+      <div className='boundary bottom'
+      onMouseEnter={props.resetBoard}
+      >
       </div>
     </div>
   )
@@ -47,6 +51,8 @@ const mapStateToProps = state => ({
   isBoardActive: isBoardActive(state),
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = {
+  resetBoard: board.setBoardInactive,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)
