@@ -1,17 +1,24 @@
 import {  SET_BOARD_INACTIVE } from '../constants/action-types'
 
-import { board } from '../actions'
-import { isBoardActive } from '../reducers'
+import { isBoardActive, tiles, isTileVisited } from '../reducers'
+import { setLetterReset } from '../actions/board'
 
-const deactivateBoard = ({ getState, dispatch }) => next => action => {
+const resetLetters = (letters) => (
+  Object.keys(letters).forEach((item) => {
+    letters[item].isTileVisited = false
+  })
+)
+
+const deactivateBoard = ({ getState }) => next => action => {
   if(action.type !== SET_BOARD_INACTIVE)
     return next(action)
 
   const isActive = isBoardActive(getState())
+  const theTiles = tiles(getState())
 
   if (isActive) {
     console.log('Deactivating')
-    // dispatch(board.setBoardInactive()) 
+    resetLetters(theTiles)
     next(action)
   }
 }

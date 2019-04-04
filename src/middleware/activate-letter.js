@@ -14,7 +14,7 @@ const activateLetter = ({ getState, dispatch }) => next => action => {
     dispatch(word.addLetter(tileLetter))
     dispatch(word.setLetter(id))
     console.log('active yay')
-    next(action)
+    // next(action)
   }
 }
 

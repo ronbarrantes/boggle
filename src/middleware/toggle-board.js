@@ -9,7 +9,7 @@ const toggleBoard = ({ getState, dispatch }) => next => action => {
   const isActive = isBoardActive(getState())
 
   // if(isActive)
-    console.log('IS ACTIVE')
+  console.log('IS ACTIVE')
 
   next(action)
 }

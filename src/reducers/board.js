@@ -1,4 +1,7 @@
 // TODO: Use reselect on toggles
+
+import { createSelector } from 'reselect'
+
 import {
   SET_BOARD, SET_LETTER_RESET, SET_LETTER,
   SET_BOARD_ACTIVE, TOGGLE_BOARD_ACTIVE, SET_BOARD_INACTIVE,
@@ -53,9 +56,8 @@ const boardReducer = (board = initialState, action) => {
   }
 }
 
-export const tiles = (state) => state.board.tiles
+export const tiles = createSelector((state) => state.board.tiles, tiles => tiles)
 export const isBoardActive = (state) => state.board.isBoardActive
-
 export const letter = (state, id) => state.board.tiles[id].letter
 export const isTileVisited = (state, id) => state.board.tiles[id].isTileVisited
 

@@ -6,7 +6,7 @@ import {} from '../actions/word'
 import LetterItem from './letter-item'
 import WordGuess from './word-guess'
 import { word, tiles, isBoardActive  } from '../reducers'
-import { board } from '../actions';
+import { board } from '../actions'
 
 const Board = (props) => {
   const {
@@ -34,11 +34,11 @@ const Board = (props) => {
         )}
       </ul>
       <div className='boundary sides'
-      onMouseEnter={props.resetBoard}
+        onMouseEnter={props.resetBoard}
       >
       </div>
       <div className='boundary bottom'
-      onMouseEnter={props.resetBoard}
+        onMouseEnter={props.resetBoard}
       >
       </div>
     </div>
