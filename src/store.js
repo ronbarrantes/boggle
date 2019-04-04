@@ -6,13 +6,13 @@ import initBoard from './middleware/init-board'
 
 import checkWord from './middleware/check-word'
 import activateBoard from './middleware/activate-board'
-import selectLetter from './middleware/select-letter'
+import activateLetter from './middleware/activate-letter'
 import deactivateBoard from './middleware/deactivate-board'
 
 const middleware = [
   initBoard,
   activateBoard,
-  selectLetter,
+  activateLetter,
   deactivateBoard,
   checkWord,
   logMiddleware,

@@ -1,4 +1,8 @@
-import { ADD_LETTER, CHECK_WORD, SET_LETTER, RESET_WORD } from '../constants/action-types'
+import { ADD_LETTER, CHECK_WORD, SET_LETTER, RESET_WORD, SELECT_LETTER } from '../constants/action-types'
+
+export const selectLetter = (tileId) => ({
+  type: SELECT_LETTER, tileId,
+})
 
 export const addLetter = (letter) => ({
   type: ADD_LETTER, letter,

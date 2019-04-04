@@ -6,14 +6,12 @@ import { board, word } from '../actions'
 
 const LetterItem = (props) =>  {
   const handleClick = () =>{
-    console.log(`HANDLE CLICK`)
     props.toggleActive()
-    props.setLetter(props.tileId)
+    props.selectLetter(props.tileId)
   }
 
   const handleMouseEnter = () => {
-    console.log('HANDLE MOUSE EVENT')
-    props.setLetter(props.tileId)
+    props.selectLetter(props.tileId)
   }
 
 
@@ -40,7 +38,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = {
   toggleActive: board.toggleActive,
-  setLetter: word.setLetter,
+  selectLetter: word.selectLetter,
 }
 
 export default connect (mapStateToProps, mapDispatchToProps)(LetterItem)
