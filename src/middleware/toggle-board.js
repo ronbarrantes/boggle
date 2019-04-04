@@ -1,5 +1,6 @@
 import { TOGGLE_BOARD_ACTIVE } from '../constants/action-types'
-import { board } from '../actions'
+import { setBoardInactive } from '../actions/board'
+import { checkWord } from '../actions/word'
 import { isBoardActive } from '../reducers'
 
 const toggleBoard = ({ getState, dispatch }) => next => action => {
@@ -8,18 +9,11 @@ const toggleBoard = ({ getState, dispatch }) => next => action => {
 
   const isActive = isBoardActive(getState())
 
-  // if(isActive)
-  console.log('IS ACTIVE')
-
+  if(isActive){
+    dispatch(checkWord())
+    return dispatch(setBoardInactive())
+  }
   next(action)
 }
 
 export default toggleBoard
-
-
-// TODO: Do this middleware logic
-
-// ### activateBoard [first click]
-// - activates board
-// - enables selecting/hovering
-// - **selectLetter()**

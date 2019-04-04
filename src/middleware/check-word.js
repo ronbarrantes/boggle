@@ -29,19 +29,12 @@ const checkWord = ({ getState, dispatch }) => next => action => {
       console.log('FROM CHECKWORD', getState().board)
       next(action)
       res.valid ? dispatch(addValidWord(word)):dispatch(addInvalidWord(word))
-      dispatch(resetWord())
+
     })
     .catch(err=>{
       console.log('ERROR:', err)
-      dispatch(resetWord())
+
     })
 }
 
 export default checkWord
-
-// TODO: Do this middleware logic
-
-// ### checkWord [Second Click]
-// - **deactivateBoard**
-// - checks for the word
-//   - adds to correct|incorrect list

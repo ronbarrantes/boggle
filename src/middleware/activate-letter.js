@@ -1,28 +1,27 @@
-import { letter, isBoardActive } from '../reducers'
-import { word, board } from '../actions'
+import { letter, isBoardActive, isTileVisited } from '../reducers'
+import { addLetter, setLetter } from '../actions/word'
+import { setBoardInactive } from '../actions/board'
 import { SELECT_LETTER } from '../constants/action-types'
 
+import { tiles } from '../reducers'
 
 const activateLetter = ({ getState, dispatch }) => next => action => {
   if (action.type !== SELECT_LETTER)
     return next(action)
 
-  // TODO: Make this work with isBoardActive
-  if (isBoardActive(getState())){
+  const boardActive = isBoardActive(getState())
+
+  if (boardActive){
     const id = action.tileId
+    const tileVisited = isTileVisited(getState(), id)
     const tileLetter = letter(getState(), id)
-    dispatch(word.addLetter(tileLetter))
-    dispatch(word.setLetter(id))
-    console.log('active yay')
-    // next(action)
+    dispatch(addLetter(tileLetter))
+    dispatch(setLetter(id))
+
+    tileVisited && dispatch(setBoardInactive())
   }
+
+
 }
 
 export default activateLetter
-
-// TODO: Do this middleware logic
-
-// ### selectLetter [Hovering]
-// - selects letter
-// - add letter to adder
-// - turn letter on
