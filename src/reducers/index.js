@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { createSelector } from 'reselect'
 
 import wordReducer, * as fromWordReducer from './word'
 import boardReducer, * as fromBoardReducer from './board'
@@ -17,5 +18,10 @@ export const tiles = state => fromBoardReducer.tiles(state)
 export const letter = (state, id) => fromBoardReducer.letter(state, id)
 export const isBoardActive = state => fromBoardReducer.isBoardActive(state)
 export const isTileVisited = (state, id) => fromBoardReducer.isTileVisited(state, id)
+
+export const wordList = createSelector(
+  validWords, invalidWords,
+  (validWords, invalidWords) => [...validWords, ...invalidWords]
+)
 
 export default rootReducer
