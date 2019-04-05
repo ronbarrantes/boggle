@@ -1,17 +1,19 @@
-import { CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
-import { addValidWord, addInvalidWord } from '../actions/word-list'
 import { resetWord } from '../actions/word'
 import { word, wordList } from '../reducers'
+import { addValidWord, addInvalidWord } from '../actions/word-list'
+import { CHECK_WORD, NO_WORD_ADDED } from '../constants/action-types'
 
 const apiURL = 'https://us-central1-hazel-analytics.cloudfunctions.net/boggle-dictionary'
 
-const checkWord = ({ getState, dispatch }) => next => action => {
+const checkWord = ({ getState, dispatch }) => next => action => {  
   if (action.type !== CHECK_WORD)
     return next(action)
 
   const state = getState()
   const w = word(state)
   const wL = wordList(state)
+
+
 
   if (w.length < 3 || wL.includes(w)) {
     action.type = NO_WORD_ADDED

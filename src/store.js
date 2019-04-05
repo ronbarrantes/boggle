@@ -7,7 +7,6 @@ import initBoard from './middleware/init-board'
 import checkWord from './middleware/check-word'
 import toggleBoard from './middleware/toggle-board'
 import activateLetter from './middleware/activate-letter'
-// import resetLetters from './middleware/reset-letters'
 import deactivateBoard from './middleware/deactivate-board'
 
 const middleware = [
@@ -15,7 +14,6 @@ const middleware = [
   toggleBoard,
   activateLetter,
   deactivateBoard,
-  // resetLetters,
   checkWord,
   logMiddleware,
 ]

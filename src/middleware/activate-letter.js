@@ -1,7 +1,7 @@
-import { letter, isBoardActive, isTileVisited } from '../reducers'
-import { addLetter, setLetter } from '../actions/word'
 import { setBoardInactive } from '../actions/board'
+import { addLetter, setLetter } from '../actions/word'
 import { SELECT_LETTER } from '../constants/action-types'
+import { letter, isBoardActive, isTileVisited } from '../reducers'
 
 const activateLetter = ({ getState, dispatch }) => next => action => {
   if (action.type !== SELECT_LETTER)

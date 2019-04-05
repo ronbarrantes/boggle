@@ -1,5 +1,3 @@
-// TODO: Use reselect on toggles
-
 import { createSelector } from 'reselect'
 
 import {
