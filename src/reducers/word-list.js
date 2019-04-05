@@ -1,8 +1,8 @@
 import { ADD_VALID_WORD, ADD_INVALID_WORD } from '../constants/action-types'
 
 const initialState = {
-  validWords:['hello'],
-  invalidWords:['notaword'],
+  validWords:[],
+  invalidWords:[],
 }
 
 const wordListReducer = (wordList = initialState, action) => {

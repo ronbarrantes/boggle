@@ -5,17 +5,22 @@ import { letter, isTileVisited } from '../reducers'
 import { board, word } from '../actions'
 
 const LetterItem = (props) =>  {
+  const {
+    toggleActive, selectLetter,
+    tileId, isTileVisited, letter,
+  } = props
+
   const handleClick = () =>{
-    props.toggleActive()
-    props.selectLetter(props.tileId)
+    toggleActive()
+    selectLetter(tileId)
   }
 
   const handleMouseEnter = () => {
-    props.selectLetter(props.tileId)
+    selectLetter(tileId)
   }
 
+  const liClass = ['letter-item', isTileVisited && 'visited'].join(' ')
 
-  const liClass = ['letter-item', props.isTileVisited && 'visited'].join(' ')
   return(
     <li
       onClick={handleClick}
@@ -23,18 +28,17 @@ const LetterItem = (props) =>  {
     >
       <div
         onMouseEnter={handleMouseEnter}>
-        {props.letter}
+        {letter}
       </div>
     </li>
   )
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    letter: letter(state, props.tileId),
-    isTileVisited: isTileVisited(state, props.tileId),
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  letter: letter(state, ownProps.tileId),
+  isTileVisited: isTileVisited(state, ownProps.tileId),
+
+})
 
 const mapDispatchToProps = {
   toggleActive: board.toggleActive,
